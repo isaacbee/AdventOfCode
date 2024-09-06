@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <Target Name="CopyFiles" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <!-- Because this ItemGroup is inside the target, this will enumerate
+        all files just before calling Copy. If the ItemGroup were outside
+        the target , it would enumerate the files during evaluation, before
+        the build starts, which may miss files created during the build. -->
+      <MySourceFiles Include="**\**\*.txt" Exclude="bin\**\*.*;obj\**\*.*" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(MySourceFiles)" DestinationFolder="$(TargetDir)\lib\%(RecursiveDir)" />
+  </Target>
+</Project>
