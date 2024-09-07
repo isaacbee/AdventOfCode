@@ -37,7 +37,7 @@ public partial class Day5 : ISolution
 
     private static string GetNiceStringsCountV2()
 	{
-		// part 1
+		// part 2
 		int count = 0;
         string[] lines = inputText.Split('\n');
 
