@@ -45,10 +45,10 @@ public class Day4 : ISolution
 		try {
 			while (value < long.MaxValue) {
 				value++;
-				if (value % 10000000 == 0)
-				{
-					Console.Write($"\rOn {MethodBase.GetCurrentMethod()?.DeclaringType?.FullName}. Checking {value} which is {(float)value/int.MaxValue} times a max int and {(float)value/long.MaxValue*100}% of a max long. Running for {(float)sw.ElapsedMilliseconds/1000} s     ");
-				}
+				// if (value % 10000000 == 0)
+				// {
+				// 	Console.Write($"\rOn {MethodBase.GetCurrentMethod()?.DeclaringType?.FullName}. Checking {value} which is {(float)value/int.MaxValue} times a max int and {(float)value/long.MaxValue*100}% of a max long. Running for {(float)sw.ElapsedMilliseconds/1000} s     ");
+				// }
 
 				byte[] inputBytes = Encoding.ASCII.GetBytes($"{inputText}{value}");
 				hashBytes = MD5.HashData(inputBytes);
@@ -56,7 +56,7 @@ public class Day4 : ISolution
 				string result = Convert.ToHexString(hashBytes);
 				if (result[..nZeroes].Equals(zeroes)) 
 				{
-					return $"the value {value} produces {nZeroes} leading zeroes in the hash {result[..10]} ";
+					return $"the value {value} produces {nZeroes} leading zeroes in the hash {result[..16]} ";
 				}
 			}
 
@@ -64,8 +64,8 @@ public class Day4 : ISolution
 		}
 		finally
 		{
-			Console.Write($"\r{new string(' ', Console.WindowWidth)}");
-			Console.SetCursorPosition(0, currentLineCursor);
+			// Console.Write($"\r{new string(' ', Console.WindowWidth)}");
+			// Console.SetCursorPosition(0, currentLineCursor);
 		}
     }
 

@@ -22,7 +22,7 @@ public class Program
 
     static void RunSolutions()
     {
-        ISolution[] solutions = { new _2015.Day1(), new _2015.Day2(), new _2015.Day3(), new _2015.Day4() };
+        ISolution[] solutions = { new _2015.Day1(), new _2015.Day2(), new _2015.Day3(), new _2015.Day4(), new _2015.Day5() };
         foreach (var solution in solutions)
         {
             RunSolution(solution);
