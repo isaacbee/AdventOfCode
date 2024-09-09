@@ -5,7 +5,7 @@ namespace AdventOfCode._2015;
 
 public partial class Day11 : ISolution
 {
-    // private static readonly string filePath = $"lib\\2015\\Day11\\input.txt";
+    // private static readonly string filePath = $"lib\\2015\\Day11-input.txt";
     private static readonly string inputText = "hepxcrrq";
 
     private static string ChangePassword(string input)

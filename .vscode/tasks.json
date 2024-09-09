@@ -2,6 +2,12 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "clean-build",
+            "dependsOn": [
+                "clean",
+                "build"
+            ]
+        },{
             "label": "build",
             "command": "dotnet",
             "type": "process",
@@ -10,6 +16,16 @@
                 "${workspaceFolder}/AdventOfCode.generated.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "clean",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/AdventOfCode.generated.sln"
             ],
             "problemMatcher": "$msCompile"
         },

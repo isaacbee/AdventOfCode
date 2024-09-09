@@ -4,7 +4,7 @@ namespace AdventOfCode._2015;
 
 public class Day2 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day2\\input.txt";
+    private static readonly string filePath = $"lib\\2015\\Day2-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
     private static string GetTotalArea()

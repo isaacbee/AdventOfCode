@@ -5,7 +5,7 @@ namespace AdventOfCode._2015;
 
 public class Day10 : ISolution
 {
-    // private static readonly string filePath = $"lib\\2015\\Day10\\input.txt";
+    // private static readonly string filePath = $"lib\\2015\\Day10-input.txt";
     private static readonly string inputText = "3113322113";
 
 

@@ -9,7 +9,7 @@ namespace AdventOfCode._2015;
 
 public class Day4 : ISolution
 {
-    // private static readonly string filePath = $"lib\\2015\\Day4\\input.txt";
+    // private static readonly string filePath = $"lib\\2015\\Day4-input.txt";
     private static readonly string inputText = "ckczppom";
     // private static readonly int numThreads = 4;
     // private static readonly int numTasks = 10000000;
