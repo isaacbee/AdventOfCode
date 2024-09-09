@@ -75,7 +75,7 @@ public partial class Day11 : ISolution
 
         string part2 = ChangePassword(part1);
 
-        return $"the new password {part1} meets the 3 requirements and so does the password {part2} after";
+        return $"the next password that meets the 3 requirments = {part1} and the password after that = {part2}";
     }
 
     [GeneratedRegex("[ilo]")]

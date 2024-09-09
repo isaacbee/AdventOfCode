@@ -16,7 +16,7 @@
         all files just before calling Copy. If the ItemGroup were outside
         the target , it would enumerate the files during evaluation, before
         the build starts, which may miss files created during the build. -->
-      <MySourceFiles Include="**\**\*.txt" Exclude="bin\**\*.*;obj\**\*.*" />
+      <MySourceFiles Include="**\**\*.txt;**\**\*.json" Exclude="bin\**\*.*;obj\**\*.*" />
     </ItemGroup>
 
     <Copy SourceFiles="@(MySourceFiles)" DestinationFolder="$(TargetDir)\lib\%(RecursiveDir)" />
