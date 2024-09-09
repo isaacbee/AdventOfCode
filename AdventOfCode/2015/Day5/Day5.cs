@@ -5,13 +5,13 @@ namespace AdventOfCode._2015;
 
 public partial class Day5 : ISolution
 {
-	private static readonly string filePath = $"lib\\2015\\Day5\\input.txt";
-	private static readonly string inputText = File.ReadAllText(filePath);
+    private static readonly string filePath = $"lib\\2015\\Day5\\input.txt";
+    private static readonly string inputText = File.ReadAllText(filePath);
 
-	private static string GetNiceStringsCountV1()
-	{
-		// part 1
-		int count = 0;
+    private static string GetNiceStringsCountV1()
+    {
+        // part 1
+        int count = 0;
         string[] lines = inputText.Split('\n');
 
         foreach (string line in lines)
@@ -32,13 +32,13 @@ public partial class Day5 : ISolution
             }
         }
 
-		return $"{count} nice strings using v1";
-	}
+        return $"{count} nice strings using v1";
+    }
 
     private static string GetNiceStringsCountV2()
-	{
-		// part 2
-		int count = 0;
+    {
+        // part 2
+        int count = 0;
         string[] lines = inputText.Split('\n');
 
         foreach (string line in lines)
@@ -58,13 +58,13 @@ public partial class Day5 : ISolution
             }
         }
 
-		return $"{count} nice strings using v2";
-	}
+        return $"{count} nice strings using v2";
+    }
 
-	public string Answer()
-	{
-		return $"{GetNiceStringsCountV1()} and {GetNiceStringsCountV2()}";
-	}
+    public string Answer()
+    {
+        return $"{GetNiceStringsCountV1()} and {GetNiceStringsCountV2()}";
+    }
 
     [GeneratedRegex(@"[aeiou]", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex VowelRegex();

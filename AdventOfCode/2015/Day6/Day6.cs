@@ -5,16 +5,16 @@ namespace AdventOfCode._2015;
 
 public partial class Day6 : ISolution
 {
-	private static readonly string filePath = $"lib\\2015\\Day6\\input.txt";
-	private static readonly string inputText = File.ReadAllText(filePath);
+    private static readonly string filePath = $"lib\\2015\\Day6\\input.txt";
+    private static readonly string inputText = File.ReadAllText(filePath);
 
     // part 1
-	private static string GetLights()
-	{
+    private static string GetLights()
+    {
         int gridSize = 1000;
         bool[,] lights = new bool[gridSize, gridSize];
-		
-		int count = 0;
+        
+        int count = 0;
         string[] lines = inputText.Split('\n');
 
         foreach (string line in lines)
@@ -50,8 +50,8 @@ public partial class Day6 : ISolution
             }
         }
 
-		return $"{count} lights are lit";
-	}
+        return $"{count} lights are lit";
+    }
 
     private static (int, int, int, int) ExtractCoords(string line)
     {
@@ -66,11 +66,11 @@ public partial class Day6 : ISolution
 
     // part 2
     private static string GetBrightness()
-	{
+    {
         int gridSize = 1000;
         int[,] brightness = new int[gridSize, gridSize];
         
-		int totalBrightness = 0;
+        int totalBrightness = 0;
         string[] lines = inputText.Split('\n');
 
         foreach (string line in lines)
@@ -106,13 +106,13 @@ public partial class Day6 : ISolution
             }
         }
 
-		return $"the total brightness {totalBrightness}";
-	}
+        return $"the total brightness {totalBrightness}";
+    }
 
-	public string Answer()
-	{
-		return $"{GetLights()} and {GetBrightness()}";
-	}
+    public string Answer()
+    {
+        return $"{GetLights()} and {GetBrightness()}";
+    }
 
     [GeneratedRegex(@"\d+,\d+")]
     private static partial Regex CoordinatePairsRegex();

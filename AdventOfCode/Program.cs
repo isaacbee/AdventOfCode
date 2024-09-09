@@ -4,7 +4,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        RunSolutions();
+        RunAllSolutions();
     }
 
     static void RunSolution(ISolution Solve)
@@ -20,10 +20,21 @@ public class Program
 
     }
 
-    static void RunSolutions()
+    static void RunAllSolutions()
     {
-        ISolution[] solutions = { new _2015.Day1(), new _2015.Day2(), new _2015.Day3(), new _2015.Day4(), new _2015.Day5(), new _2015.Day6() };
-        foreach (var solution in solutions)
+        ISolution[] _2015solutions = [ 
+            new _2015.Day1(), 
+            new _2015.Day2(), 
+            new _2015.Day3(), 
+            new _2015.Day4(), 
+            new _2015.Day5(), 
+            new _2015.Day6(), 
+            new _2015.Day7(), 
+            new _2015.Day8(), 
+            new _2015.Day9()
+        ];
+        
+        foreach (var solution in _2015solutions)
         {
             RunSolution(solution);
         }
