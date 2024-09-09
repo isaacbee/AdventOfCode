@@ -31,7 +31,8 @@ public class Program
             new _2015.Day6(), 
             new _2015.Day7(), 
             new _2015.Day8(), 
-            new _2015.Day9()
+            new _2015.Day9(), 
+            new _2015.Day10()
         ];
         
         foreach (var solution in _2015solutions)

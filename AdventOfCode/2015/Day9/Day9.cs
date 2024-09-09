@@ -73,7 +73,7 @@ public class Day9 : ISolution
             List<string> notStartOrEnd = new(cities.Keys);
             notStartOrEnd.RemoveAll(c => c == start || c == end);
             
-            (int distance, List<string> path) = FindShortestPath(cities, notStartOrEnd, end, 0, start, isMinimum);
+            (int distance, List<string> path) = FindPath(cities, notStartOrEnd, end, 0, start, isMinimum);
 
             if (distance < savedDistance && isMinimum) // part 1
             {
@@ -89,7 +89,7 @@ public class Day9 : ISolution
         return (savedDistance, savedPath);
     }
 
-    private static (int, List<string>) FindShortestPath(Dictionary<string, City> cities, List<string> remainingCities, string current, int currDistance, string end, bool isMinimum)
+    private static (int, List<string>) FindPath(Dictionary<string, City> cities, List<string> remainingCities, string current, int currDistance, string end, bool isMinimum)
     {
         int savedDistance;
         if (isMinimum) // part 1
@@ -116,7 +116,7 @@ public class Day9 : ISolution
 
                 int addDistance = cities[current].Connections[otherCity];
 
-                (int distance, List<string> path) = FindShortestPath(cities, newRemainingCities, otherCity, currDistance + addDistance, end, isMinimum);
+                (int distance, List<string> path) = FindPath(cities, newRemainingCities, otherCity, currDistance + addDistance, end, isMinimum);
 
                 path.Add(current);
 
@@ -158,6 +158,6 @@ public class Day9 : ISolution
 
         (int longestDistance, List<string> longestPath) = CalculateHamiltonianConnectedPath(cities, false);
 
-        return $"the shortest path {PathToString(shortestPath)} = {shortestDistance} and the longestPath {PathToString(longestPath)} = {longestDistance}";
+        return $"the shortest path {PathToString(shortestPath)} = {shortestDistance} and the longest path {PathToString(longestPath)} = {longestDistance}";
     }
 }
