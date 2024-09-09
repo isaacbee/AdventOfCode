@@ -1,5 +1,4 @@
 using System;
-using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2015;
 
