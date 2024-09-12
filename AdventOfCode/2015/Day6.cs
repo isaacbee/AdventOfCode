@@ -71,7 +71,7 @@ public partial class Day6 : ISolution
         int[,] brightness = new int[gridSize, gridSize];
         
         int totalBrightness = 0;
-        string[] lines = inputText.Split('\n');
+        string[] lines = inputText.Split(Environment.NewLine);
 
         foreach (string line in lines)
         {

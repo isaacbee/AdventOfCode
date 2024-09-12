@@ -19,65 +19,18 @@ public class Day7 : ISolution
         public LogicGate(string operand1, string output)
         {
             Output = output;
-            // if (int.TryParse(operand1, out int value))
-            // {
-            //     Value = (ushort)value;
-            //     IsValueSet = true;
-            // }
-            // else 
-            // {
-            //     Operand1 = operand1;
-            // }
-
             Operand1 = operand1;
         }
         public LogicGate(string operation, string operand1, string output)
         {
             Output = output;
             Operation = operation;
-            // if (int.TryParse(operand1, out int value))
-            // {
-            //     switch (operation)
-            //     {
-            //         case "NOT":
-            //             Value = (ushort)~value;
-            //             IsValueSet = true;
-            //             break;
-            //         default:
-            //             // operation not supported
-            //             break;
-            //     }
-            // }
-            // else 
-            // {
-            //     Operand1 = operand1;
-            // }
-
             Operand1 = operand1;
         }
         public LogicGate(string operand1, string operation, string operand2, string output)
         {
             Output = output;
             Operation = operation;
-            // if (int.TryParse(operand1, out int value1) && int.TryParse(operand2, out int value2))
-            // {
-            //     Value = operation switch
-            //     {
-            //         "AND" => (ushort)(value1 & value2),
-            //         "OR" => (ushort)(value1 | value2),
-            //         "LSHIFT" => (ushort)(value1 << value2),
-            //         "RSHIFT" => (ushort)(value1 >>> value2),
-            //         _ => throw new Exception("Operation not supported")
-            //     };
-
-            //     IsValueSet = true;
-            // }
-            // else 
-            // {
-            //     Operand1 = operand1;
-            //     Operand2 = operand2;
-            // }
-
             Operand1 = operand1;
             Operand2 = operand2;
         }
@@ -94,12 +47,12 @@ public class Day7 : ISolution
     private static Dictionary<string, LogicGate> InitLogicGates()
     {
         // init
-        string[] lines = inputText.Split('\n');
+        string[] lines = inputText.Split(Environment.NewLine);
         Dictionary<string, LogicGate> logicGates = [];
 
         foreach (string line in lines)
         {
-            string[] tokens = line.Trim('\r').Split(' ');
+            string[] tokens = line.Split(' ');
             
             switch (tokens.Length)
             {

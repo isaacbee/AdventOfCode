@@ -134,21 +134,6 @@ public class Day9 : ISolution
         }
     }
 
-    private static string PathToString(List<string> path)
-    {
-        string fullPath = path[0];
-
-        foreach (string s in path) 
-        {
-            if (fullPath != s)
-            {
-                fullPath += $" -> {s}";
-            }
-        }
-
-        return fullPath;
-    }
-
     public string Answer()
     {
         Dictionary<string, City> cities = Init();
@@ -157,6 +142,6 @@ public class Day9 : ISolution
 
         (int longestDistance, List<string> longestPath) = CalculateHamiltonianConnectedPath(cities, false);
 
-        return $"the shortest path {PathToString(shortestPath)} = {shortestDistance} and the longest path {PathToString(longestPath)} = {longestDistance}";
+        return $"the shortest path {string.Join(" -> ", shortestPath)} = {shortestDistance} and the longest path {string.Join(" -> ", longestPath)} = {longestDistance}";
     }
 }

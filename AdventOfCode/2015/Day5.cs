@@ -12,7 +12,7 @@ public partial class Day5 : ISolution
     {
         // part 1
         int count = 0;
-        string[] lines = inputText.Split('\n');
+        string[] lines = inputText.Split(Environment.NewLine);
 
         foreach (string line in lines)
         {

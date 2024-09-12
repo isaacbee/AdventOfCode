@@ -16,18 +16,12 @@ public class Day1 : ISolution
         foreach (char c in inputText)
         {
             // part 1
-            switch (c)
+            floor = c switch
             {
-                case '(':
-                    floor++;
-                    break;
-                case ')':
-                    floor--;
-                    break;
-                default:
-                    // do nothing
-                    break;
-            }
+                '(' => floor + 1,
+                ')' => floor - 1,
+                _ => floor
+            };
 
             // part 2
             count++;

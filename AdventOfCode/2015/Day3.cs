@@ -68,7 +68,7 @@ public class Day3 : ISolution
             'v' => (coord.x, coord.y-1),
             '>' => (coord.x+1, coord.y),
             '<' => (coord.x-1, coord.y),
-            _ => (coord.x, coord.y) // do nothing
+            _ => (coord.x, coord.y)
         };
     }
 

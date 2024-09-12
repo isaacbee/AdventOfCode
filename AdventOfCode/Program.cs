@@ -34,7 +34,8 @@ public class Program
             new _2015.Day9(), 
             new _2015.Day10(), 
             new _2015.Day11(), 
-            new _2015.Day12()
+            new _2015.Day12(), 
+            new _2015.Day13()
         ];
         
         foreach (var solution in _2015solutions)
@@ -42,10 +43,16 @@ public class Program
             RunSolution(solution);
         }
     }
-
-    
 }
 
 interface ISolution {
     public string Answer();
+}
+
+public static class Extensions
+{
+    public static void Swap<T>(this IList<T> list, int indexA, int indexB)
+    {
+        (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
+    }
 }

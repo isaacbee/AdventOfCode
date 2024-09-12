@@ -12,17 +12,15 @@ public class Day2 : ISolution
         int paper = 0;
         int ribbon = 0;
 
-        string[] lines = inputText.Split('\n');
+        string[] lines = inputText.Split(Environment.NewLine);
 
         foreach (string line in lines)
         {
-            int l = -1, w = -1, h = -1;
-
             string[] values = line.Split('x');
     
-            l = int.Parse(values[0]);
-            w = int.Parse(values[1]);
-            h = int.Parse(values[2]);
+            int l = int.Parse(values[0]);
+            int w = int.Parse(values[1]);
+            int h = int.Parse(values[2]);
 
             // part 1
             List<int> areas = CalculateAreas(l, w, h);
