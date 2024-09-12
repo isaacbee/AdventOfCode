@@ -15,7 +15,7 @@ public partial class Day6 : ISolution
         bool[,] lights = new bool[gridSize, gridSize];
         
         int count = 0;
-        string[] lines = inputText.Split('\n');
+        string[] lines = inputText.Split(Environment.NewLine);
 
         foreach (string line in lines)
         {
