@@ -31,7 +31,7 @@ public class Day18 : ISolution
         return lights;
     }
 
-    private static (int, bool[,]) CalculateOnLights(bool[,] originalLights, int remSteps, bool isCornersFaulty = false)
+    private static (int onCount, bool[,] newLights) CalculateOnLights(bool[,] originalLights, int remSteps, bool isCornersFaulty = false)
     {
         (int x, int y)[] allAdjacent = [
             (-1, -1),

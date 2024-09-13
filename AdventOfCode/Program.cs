@@ -8,7 +8,7 @@ public class Program
         // RunAllSolutions();
 
         // Run individual solutions
-        RunSolution(new _2015.Day18());
+        RunSolution(new _2015.Day19());
     }
 
     static void RunSolution(ISolution Solve)
@@ -45,7 +45,7 @@ public class Program
             new _2015.Day16(), 
             new _2015.Day17(), 
             new _2015.Day18(), 
-            // new _2015.Day19(), 
+            new _2015.Day19(), 
             // new _2015.Day20(), 
             // new _2015.Day21(), 
             // new _2015.Day22(), 
