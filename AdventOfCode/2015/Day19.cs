@@ -308,6 +308,15 @@ public partial class Day19 : ISolution
         // // part 2 (adapted solution)
         // int steps = GenerateMedicineMolecule("e", input.medicine);
         // return $"{distinctList1.Count} molecules can be made after one replacement of the medicine and \"e\" was turned into the medicine after {steps} steps ({cache!.Count} unique molecules generated in the process)";
+
+        // part 2 (cool math solution)
+        // https://www.reddit.com/r/adventofcode/comments/3xflz8/comment/cy4etju/
+        // Example:
+        // CRnCaCaCaSiRnBPTiMgArSiRnSiRnMgArSiRnCaFArTiTiBSiThFYCaFArCaCaSiThCaPBSiThSiThCaCaPTiRnPBSiThRnFArArCaCaSiThCaSiThSiRnMgArCaPTiBPRnFArSiThCaSiRnFArBCaSiRnCaPRnFArPMgYCaFArCaPTiTiTiBPBSiThCaPTiBPBSiRnFArBPBSiRnCaFArBPRnSiRnFArRnSiRnBFArCaFArCaCaCaSiThSiThCaCaPBPTiTiRnFArCaPTiBSiAlArPBCaCaCaCaCaSiRnMgArCaSiThFArThCaSiThCaSiRnCaFYCaSiRnFYFArFArCaSiRnFYFArCaSiRnBPMgArSiThPRnFArCaSiRnFArTiRnSiRnFYFArCaSiRnBFArCaSiRnTiMgArSiThCaSiThCaFArPRnFArSiRnFArTiTiTiTiBCaCaSiRnCaCaFYFArSiThCaPTiBPTiBCaSiThSiRnMgArCaF
+        // 295 elements in total
+        //  68 were Rn or Ar
+        //   7 were Y
+        // 295 - (34 + 34) - 2*7 - 1 = 212
     }
 
     [GeneratedRegex(@"[A-Z][a-z]")]
