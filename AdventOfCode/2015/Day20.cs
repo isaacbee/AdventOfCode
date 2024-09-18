@@ -7,22 +7,6 @@ public class Day20 : ISolution
     // private static readonly string filePath = $"lib\\2015\\Day20-input.txt";
     // private static readonly string inputText = File.ReadAllText(filePath);
 
-    private class Elf(int index)
-    {
-        public int Index { get; init; } = index;
-        public int DeliveredPresents(int house)
-        {
-            if (house % Index == 0)
-            {
-                return Index * 10;
-            }
-            else 
-            {
-                return 0;
-            }
-        }
-    }
-
     private static int CalculateMinimumDeliveriesHouse(int minPresents, int presentsMult, int limit = int.MaxValue)
     {
         int minLength = minPresents / 10;
