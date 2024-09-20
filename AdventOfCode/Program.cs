@@ -1,27 +1,42 @@
-﻿namespace AdventOfCode;
+﻿using System.Diagnostics;
+
+namespace AdventOfCode;
 
 public class Program
 {
+    public static readonly Stopwatch sw = new();
+
     static void Main(string[] args)
     {
+        sw.Start();
+
         // // Run all solutions
-        // RunAllSolutions();
+        RunAllSolutions();
 
         // Run individual solutions
-        RunSolution(new _2015.Day22());
+        // RunSolution(_2015.Day23());
     }
 
-    static void RunSolution(ISolution Solve)
+    static void RunSolution(ISolution Solve, bool isPrintPaused = false, bool isStopwatchReset = false)
     {
+        if (isStopwatchReset is true) sw.Reset();
+        sw.Start();
+
+        string answer = Solve.Answer();
+
+        if (isPrintPaused) sw.Stop();
+        TimeSpan ts = sw.Elapsed;
+
         try
         {
-            Console.WriteLine($"The solution to {Solve} is {Solve.Answer()}");
+            Console.WriteLine($"The solution to {Solve} is {answer} ({String.Format("{0:00}:{1:00}.{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds)})");
         }
         catch (Exception e)
         {
             Console.WriteLine($"Error when running {Solve}: {e}");
         }
 
+        sw.Stop();
     }
 
     static void RunAllSolutions()
@@ -49,14 +64,14 @@ public class Program
             new _2015.Day20(), 
             new _2015.Day21(), 
             new _2015.Day22(), 
-            // new _2015.Day23(), 
+            new _2015.Day23(), 
             // new _2015.Day24(), 
             // new _2015.Day25()
         ];
         
         foreach (var solution in _2015solutions)
         {
-            RunSolution(solution);
+            RunSolution(solution, false, false);
         }
     }
 }
