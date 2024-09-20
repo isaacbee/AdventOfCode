@@ -11,13 +11,13 @@ public class Program
         sw.Start();
 
         // // Run all solutions
-        RunAllSolutions();
+        // RunAllSolutions();
 
         // Run individual solutions
-        // RunSolution(_2015.Day23());
+        RunSolution(new _2015.Day23());
     }
 
-    static void RunSolution(ISolution Solve, bool isPrintPaused = false, bool isStopwatchReset = false)
+    static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
     {
         if (isStopwatchReset is true) sw.Reset();
         sw.Start();
@@ -27,9 +27,11 @@ public class Program
         if (isPrintPaused) sw.Stop();
         TimeSpan ts = sw.Elapsed;
 
+        if (showTime) Console.Write($"[{String.Format("{0:00}:{1:00}.{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds)}] ");
+
         try
         {
-            Console.WriteLine($"The solution to {Solve} is {answer} ({String.Format("{0:00}:{1:00}.{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds)})");
+            Console.WriteLine($"The solution to {Solve} is {answer}");
         }
         catch (Exception e)
         {
@@ -71,7 +73,7 @@ public class Program
         
         foreach (var solution in _2015solutions)
         {
-            RunSolution(solution, false, false);
+            RunSolution(solution);
         }
     }
 }
