@@ -219,16 +219,6 @@ public partial class Day19 : ISolution
         return prefixes;
     }
 
-    static void Shuffle<T>(List<T> list, Random random)
-    {
-        for (int i = list.Count - 1; i > 0; i--)
-        {
-            int j = random.Next(0, i + 1);
-            // Swap elements at index i and j
-            (list[j], list[i]) = (list[i], list[j]);
-        }
-    }
-
     // Entry point of the greedy-random ordered search for the medicine molecule given a starting molecule. First applies a greedy search for the solution given an optimal ordering of {input.replacementsOrdered}. Then shuffles {input.replacementsOrdered} and tries again. Assumes that the first found solution is also the best solution. The depth is equal to the number of total replacements. 
     private static (int depth, int loop) CalculateMedicineMolecule(string start, string medicine)
     {
@@ -241,7 +231,7 @@ public partial class Day19 : ISolution
             {
                 return (depth, attempt);
             }
-            Shuffle(input.replacementsOrdered, r);
+            input.replacementsOrdered.Shuffle(r);
         }
     }
 
@@ -314,8 +304,8 @@ public partial class Day19 : ISolution
         // Example:
         // CRnCaCaCaSiRnBPTiMgArSiRnSiRnMgArSiRnCaFArTiTiBSiThFYCaFArCaCaSiThCaPBSiThSiThCaCaPTiRnPBSiThRnFArArCaCaSiThCaSiThSiRnMgArCaPTiBPRnFArSiThCaSiRnFArBCaSiRnCaPRnFArPMgYCaFArCaPTiTiTiBPBSiThCaPTiBPBSiRnFArBPBSiRnCaFArBPRnSiRnFArRnSiRnBFArCaFArCaCaCaSiThSiThCaCaPBPTiTiRnFArCaPTiBSiAlArPBCaCaCaCaCaSiRnMgArCaSiThFArThCaSiThCaSiRnCaFYCaSiRnFYFArFArCaSiRnFYFArCaSiRnBPMgArSiThPRnFArCaSiRnFArTiRnSiRnFYFArCaSiRnBFArCaSiRnTiMgArSiThCaSiThCaFArPRnFArSiRnFArTiTiTiTiBCaCaSiRnCaCaFYFArSiThCaPTiBPTiBCaSiThSiRnMgArCaF
         // 295 elements in total
-        //  68 were Rn or Ar
-        //   7 were Y
+        //  68 are Rn or Ar
+        //   7 are Y
         // 295 - (34 + 34) - 2*7 - 1 = 212
     }
 

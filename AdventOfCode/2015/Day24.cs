@@ -21,7 +21,7 @@ public class Day24 : ISolution
         return packages;
     }
 
-    private static long SolveBestSleighBalance(int groups)
+    private static long SolveBestSleighBalance(int groups, bool isSafe = true)
     {
         long bestQE = long.MaxValue;
         int fullWeight = 0;
@@ -38,8 +38,8 @@ public class Day24 : ISolution
         int minLength = allCombos.Min(x => x.Count);
         List<List<int>> shortestCombos = allCombos.Where(x => x.Count == minLength).ToList();
 
-        // not neccessary, as there are no sets of numbers summing to the balancedWeight that will make it impossible to fill the remaining groups (given that it is possible to make 3 balanced groups). but leaving here in case that assumption can't be made
-        // shortestCombos.RemoveAll(x => !CanMakeRemainingGroups(x, allCombos, 2));
+        // not neccessary, as there are no sets of numbers summing to the balancedWeight that will make it impossible to fill the remaining groups (given that it is possible to make [2-4] balanced groups). but leaving here in case that assumption can't be made
+        if (!isSafe) shortestCombos.RemoveAll(x => !CanMakeRemainingGroups(x, allCombos, 2));
 
         foreach (List<int> combo in shortestCombos)
         {

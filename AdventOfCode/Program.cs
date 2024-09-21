@@ -10,11 +10,11 @@ public class Program
     {
         sw.Start();
 
-        // // Run all solutions
-        // RunAllSolutions();
+        // Run all solutions
+        RunAllSolutions();
 
-        // Run individual solutions
-        RunSolution(new _2015.Day24());
+        // // Run individual solutions
+        // RunSolution(new _2015.Day25());
     }
 
     static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
@@ -41,7 +41,7 @@ public class Program
         sw.Stop();
     }
 
-    static void RunAllSolutions()
+    static void Run2015Solutions()
     {
         ISolution[] _2015solutions = [ 
             new _2015.Day1(), 
@@ -68,13 +68,19 @@ public class Program
             new _2015.Day22(), 
             new _2015.Day23(), 
             new _2015.Day24(), 
-            // new _2015.Day25()
+            new _2015.Day25()
         ];
         
         foreach (var solution in _2015solutions)
         {
             RunSolution(solution);
         }
+    }
+
+    static void RunAllSolutions()
+    {
+        Run2015Solutions();
+
     }
 }
 
@@ -87,5 +93,14 @@ public static class Extensions
     public static void Swap<T>(this IList<T> list, int indexA, int indexB)
     {
         (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
+    }
+
+    public static void Shuffle<T>(this IList<T> list, Random random)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = random.Next(0, i + 1);
+            (list[j], list[i]) = (list[i], list[j]);
+        }
     }
 }
