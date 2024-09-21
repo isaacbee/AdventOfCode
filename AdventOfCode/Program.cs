@@ -14,7 +14,7 @@ public class Program
         // RunAllSolutions();
 
         // Run individual solutions
-        RunSolution(new _2015.Day23());
+        RunSolution(new _2015.Day24());
     }
 
     static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
@@ -27,7 +27,7 @@ public class Program
         if (isPrintPaused) sw.Stop();
         TimeSpan ts = sw.Elapsed;
 
-        if (showTime) Console.Write($"[{String.Format("{0:00}:{1:00}.{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds)}] ");
+        if (showTime) Console.Write($"[{string.Format("{0:00}:{1:00}.{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds)}] ");
 
         try
         {
@@ -67,7 +67,7 @@ public class Program
             new _2015.Day21(), 
             new _2015.Day22(), 
             new _2015.Day23(), 
-            // new _2015.Day24(), 
+            new _2015.Day24(), 
             // new _2015.Day25()
         ];
         
