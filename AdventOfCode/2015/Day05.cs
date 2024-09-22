@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2015;
 
-public partial class Day5 : ISolution
+public partial class Day05 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day5-input.txt";
+    private static readonly string filePath = $"lib\\2015\\Day05-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
     private static string GetNiceStringsCountV1()

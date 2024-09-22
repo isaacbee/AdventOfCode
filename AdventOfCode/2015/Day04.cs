@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AdventOfCode._2015;
 
-public class Day4 : ISolution
+public class Day04 : ISolution
 {
-    // private static readonly string filePath = $"lib\\2015\\Day4-input.txt";
+    // private static readonly string filePath = $"lib\\2015\\Day04-input.txt";
     private static readonly string inputText = "ckczppom";
 
     private static string GetLowestNZeroHash(int nZeroes)

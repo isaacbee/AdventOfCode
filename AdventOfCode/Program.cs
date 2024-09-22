@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AdventOfCode;
 
@@ -10,11 +11,14 @@ public class Program
     {
         sw.Start();
 
-        // Run all solutions
-        RunAllSolutions();
+        // // Run all solutions
+        // RunAllSolutions();
 
-        // // Run individual solutions
-        // RunSolution(new _2015.Day25());
+        // // Run an event's solutions
+        // Run2016Solutions();
+
+        // Run individual solutions
+        RunSolution(new _2016.Day01());
     }
 
     static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
@@ -44,15 +48,15 @@ public class Program
     static void Run2015Solutions()
     {
         ISolution[] _2015solutions = [ 
-            new _2015.Day1(), 
-            new _2015.Day2(), 
-            new _2015.Day3(), 
-            new _2015.Day4(), 
-            new _2015.Day5(), 
-            new _2015.Day6(), 
-            new _2015.Day7(), 
-            new _2015.Day8(), 
-            new _2015.Day9(), 
+            new _2015.Day01(), 
+            new _2015.Day02(), 
+            new _2015.Day03(), 
+            new _2015.Day04(), 
+            new _2015.Day05(), 
+            new _2015.Day06(), 
+            new _2015.Day07(), 
+            new _2015.Day08(), 
+            new _2015.Day09(), 
             new _2015.Day10(), 
             new _2015.Day11(), 
             new _2015.Day12(), 
@@ -77,10 +81,46 @@ public class Program
         }
     }
 
+    static void Run2016Solutions()
+    {
+        ISolution[] _2016solutions = [ 
+            new _2016.Day01(), 
+            // new _2016.Day02(), 
+            // new _2016.Day03(), 
+            // new _2016.Day04(), 
+            // new _2016.Day05(), 
+            // new _2016.Day06(), 
+            // new _2016.Day07(), 
+            // new _2016.Day08(), 
+            // new _2016.Day09(), 
+            // new _2016.Day10(), 
+            // new _2016.Day11(), 
+            // new _2016.Day12(), 
+            // new _2016.Day13(), 
+            // new _2016.Day14(), 
+            // new _2016.Day15(), 
+            // new _2016.Day16(), 
+            // new _2016.Day17(), 
+            // new _2016.Day18(), 
+            // new _2016.Day19(), 
+            // new _2016.Day20(), 
+            // new _2016.Day21(), 
+            // new _2016.Day22(), 
+            // new _2016.Day23(), 
+            // new _2016.Day24(), 
+            // new _2016.Day25()
+        ];
+        
+        foreach (var solution in _2016solutions)
+        {
+            RunSolution(solution);
+        }
+    }
+
     static void RunAllSolutions()
     {
         Run2015Solutions();
-
+        Run2016Solutions();
     }
 }
 
@@ -103,4 +143,11 @@ public static class Extensions
             (list[j], list[i]) = (list[i], list[j]);
         }
     }
+
+    public static int Mod(this int k, int n) 
+    {  
+        return ((k %= n) < 0) ? k + n : k;  
+    }
+
 }
+

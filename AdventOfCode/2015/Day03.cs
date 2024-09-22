@@ -2,9 +2,9 @@ using System;
 
 namespace AdventOfCode._2015;
 
-public class Day3 : ISolution
+public class Day03 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day3-input.txt";
+    private static readonly string filePath = $"lib\\2015\\Day03-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
     private static string GetDeliveredHouses()
