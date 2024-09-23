@@ -43,9 +43,6 @@ public partial class Day05 : ISolution
 
         foreach (string line in lines)
         {
-            Regex vowelRegex = VowelRegex();
-            Regex consecutiveRegex = ConsecutiveRegex();
-            Regex badPairRegex = BadPairRegex();
             Regex multiPairRegex = MultiPairRegex();
             Regex sandwichRegex = SandwichRegex();
 
