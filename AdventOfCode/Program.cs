@@ -18,7 +18,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day02());
+        RunSolution(new _2016.Day03());
     }
 
     static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
@@ -85,8 +85,8 @@ public class Program
     {
         ISolution[] _2016solutions = [ 
             new _2016.Day01(), 
-            // new _2016.Day02(), 
-            // new _2016.Day03(), 
+            new _2016.Day02(), 
+            new _2016.Day03(), 
             // new _2016.Day04(), 
             // new _2016.Day05(), 
             // new _2016.Day06(), 
