@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2015;
@@ -8,8 +7,7 @@ public partial class Day06 : ISolution
     private static readonly string filePath = $"lib\\2015\\Day06-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
-    // part 1
-    private static string GetLights()
+    private static int GetLights()
     {
         int gridSize = 1000;
         bool[,] lights = new bool[gridSize, gridSize];
@@ -50,7 +48,7 @@ public partial class Day06 : ISolution
             }
         }
 
-        return $"{count} lights are lit";
+        return count;
     }
 
     private static (int, int, int, int) ExtractCoords(string line)
@@ -64,8 +62,7 @@ public partial class Day06 : ISolution
         return (int.Parse(firstPair[0]), int.Parse(firstPair[1]), int.Parse(secondPair[0]), int.Parse(secondPair[1]));
     }
 
-    // part 2
-    private static string GetBrightness()
+    private static int GetBrightness()
     {
         int gridSize = 1000;
         int[,] brightness = new int[gridSize, gridSize];
@@ -106,12 +103,18 @@ public partial class Day06 : ISolution
             }
         }
 
-        return $"the total brightness {totalBrightness}";
+        return totalBrightness;
     }
 
     public string Answer()
     {
-        return $"{GetLights()} and {GetBrightness()}";
+        // part 1
+        int lights = GetLights();
+
+        // part 2
+        int brightness = GetBrightness();
+
+        return $"{lights} lights are lit; and the total brightness = {brightness}";
     }
 
     [GeneratedRegex(@"\d+,\d+")]

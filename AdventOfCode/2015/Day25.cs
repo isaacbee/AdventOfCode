@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day25 : ISolution
@@ -52,7 +50,10 @@ public class Day25 : ISolution
 
     public string Answer()
     {
+        // part 1
         long value = CalculateCell(lookup.row, lookup.column);
+
+        // part 2 = finish all other parts in AdventOfCode._2015
 
         return $"the value at ({lookup.row},{lookup.column}) = {value}";
     }

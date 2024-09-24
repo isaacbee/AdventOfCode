@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day09 : ISolution
@@ -138,10 +136,12 @@ public class Day09 : ISolution
     {
         Dictionary<string, City> cities = Init();
 
+        // part 1
         (int shortestDistance, List<string> shortestPath) = CalculateHamiltonianConnectedPath(cities, true);
 
+        // part 2
         (int longestDistance, List<string> longestPath) = CalculateHamiltonianConnectedPath(cities, false);
 
-        return $"the shortest path {string.Join(" -> ", shortestPath)} = {shortestDistance} and the longest path {string.Join(" -> ", longestPath)} = {longestDistance}";
+        return $"the shortest path {string.Join(" -> ", shortestPath)} = {shortestDistance}; and the longest path {string.Join(" -> ", longestPath)} = {longestDistance}";
     }
 }

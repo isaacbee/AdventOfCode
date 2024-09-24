@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2016;
 
 public class Day01 : ISolution
@@ -90,10 +88,12 @@ public class Day01 : ISolution
 
     public string Answer()
     {
+        // part 1
         int blocks1 = CalculateBlocksAway();
 
+        // part 2
         int blocks2 = CalculateBlocksAway(true);
 
-        return $"the final destination is {blocks1} blocks away; the first crossing is {blocks2} blocks away";
+        return $"the final destination is {blocks1} blocks away; and the first crossing is {blocks2} blocks away";
     }
 }

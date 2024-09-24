@@ -1,4 +1,3 @@
-using System;
 using System.Numerics;
 
 namespace AdventOfCode._2015;
@@ -21,12 +20,12 @@ public class Day17 : ISolution
         return containers;
     }
 
-    private static (int, int, int) CalculateContainerCombinations(List<int> containers, int targetSum)
+    private static (int targetCombinations, (int minCombinations, int minN)) CalculateContainerCombinations(List<int> containers, int targetSum)
     {
         int targetCombinations = 0;
         int allCombinations = 1 << containers.Count;
         int[] setOfCombinations = new int[containers.Count];
-        int minNCombinations = 0;
+        int minN = 0;
         int minCombinations = 0;
 
         for (int i = 0; i < allCombinations; i++)
@@ -55,21 +54,23 @@ public class Day17 : ISolution
         {
             if (setOfCombinations[i] > 0)
             {
-                minNCombinations = i;
+                minN = i;
                 minCombinations = setOfCombinations[i];
                 break;
             }
         }
 
-        return (targetCombinations, minCombinations, minNCombinations);
+        return (targetCombinations, (minCombinations, minN));
     }
 
     public string Answer()
     {
         List<int> containers = InitContainers();
-        int liters1 = 150;
-        (int targetcombinations, int minCombinations, int minNCombinations) = CalculateContainerCombinations(containers, liters1);
+        int liters = 150;
 
-        return $"the number of different combinations of containers that fits all {liters1} L = {targetcombinations}, and the combinations of minimum containers ({minNCombinations}) that fits all {liters1} L = {minCombinations}";
+        // part 1, part 2
+        var (targetCombinations, (minCombinations, minN)) = CalculateContainerCombinations(containers, liters);
+
+        return $"the number of different combinations of containers that fits all {liters} L = {targetCombinations}; and the combinations of minimum containers ({minN}) that fits all {liters} L = {minCombinations}";
     }
 }

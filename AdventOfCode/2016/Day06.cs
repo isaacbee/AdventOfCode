@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2016;
 
 public class Day06 : ISolution
@@ -63,8 +61,10 @@ public class Day06 : ISolution
 
     public string Answer()
     {
+        // part 1
         string message1 = ErrorCorrectMessage();
 
+        // part 2
         string message2 = ErrorCorrectMessage(false);
 
         return $"the error-corrected version of the message being sent = \"{message1}\"; the original message that Santa is trying to send = \"{message2}\"";

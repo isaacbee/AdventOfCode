@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2015;
@@ -8,9 +7,8 @@ public partial class Day05 : ISolution
     private static readonly string filePath = $"lib\\2015\\Day05-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
-    private static string GetNiceStringsCountV1()
+    private static int GetNiceStringsCountV1()
     {
-        // part 1
         int count = 0;
         string[] lines = inputText.Split(Environment.NewLine);
 
@@ -32,12 +30,11 @@ public partial class Day05 : ISolution
             }
         }
 
-        return $"{count} nice strings using v1";
+        return count;
     }
 
-    private static string GetNiceStringsCountV2()
+    private static int GetNiceStringsCountV2()
     {
-        // part 2
         int count = 0;
         string[] lines = inputText.Split(Environment.NewLine);
 
@@ -55,19 +52,25 @@ public partial class Day05 : ISolution
             }
         }
 
-        return $"{count} nice strings using v2";
+        return count;
     }
 
     public string Answer()
     {
-        return $"{GetNiceStringsCountV1()} and {GetNiceStringsCountV2()}";
+        // part 1
+        int count1 = GetNiceStringsCountV1();
+
+        // part 2
+        int count2 = GetNiceStringsCountV2();
+
+        return $"{count1} nice strings using v1; and {count2} nice strings using v2";
     }
 
-    [GeneratedRegex(@"[aeiou]", RegexOptions.IgnoreCase, "en-US")]
+    [GeneratedRegex(@"[aeiou]")]
     private static partial Regex VowelRegex();
     [GeneratedRegex(@"(.)\1")]
     private static partial Regex ConsecutiveRegex();
-    [GeneratedRegex(@"(ab|cd|pq|xy)", RegexOptions.IgnoreCase, "en-US")]
+    [GeneratedRegex(@"(ab|cd|pq|xy)")]
     private static partial Regex BadPairRegex();
     [GeneratedRegex(@"(\w\w).*\1")]
     private static partial Regex MultiPairRegex();

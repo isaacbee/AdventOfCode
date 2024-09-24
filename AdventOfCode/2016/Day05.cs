@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -71,8 +70,10 @@ public class Day05 : ISolution
     {
         int passwordLength = 8;
 
+        // part 1
         string password1 = GetPassword(passwordLength);
 
+        // part 2
         string password2 = GetPassword(passwordLength, true);
 
         return $"the password for the first door = {password1}; and the password for the second door = {password2}";

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day02 : ISolution
@@ -7,7 +5,7 @@ public class Day02 : ISolution
     private static readonly string filePath = $"lib\\2015\\Day02-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
-    private static string GetTotalArea()
+    private static (int paper, int ribbon) GetWrappingPaperAndRibbon()
     {
         int paper = 0;
         int ribbon = 0;
@@ -37,7 +35,7 @@ public class Day02 : ISolution
             ribbon += shortestPerimeter + (l*w*h);
         }
 
-        return $"{paper} ft² of wrapping paper and {ribbon} ft of ribbon";
+        return (paper, ribbon);
     }
 
     private static List<int> CalculateAreas(params int[] values)
@@ -82,6 +80,9 @@ public class Day02 : ISolution
 
     public string Answer()
     {
-        return GetTotalArea();
+        // part 1, part 2
+        (int paper, int ribbon) = GetWrappingPaperAndRibbon();
+
+        return $"{paper} ft² of wrapping paper; and {ribbon} ft of ribbon";
     }
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day03 : ISolution
@@ -7,7 +5,7 @@ public class Day03 : ISolution
     private static readonly string filePath = $"lib\\2015\\Day03-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
-    private static string GetDeliveredHouses()
+    private static (int, int) GetDeliveredHouses()
     {
         // part 1
         var santaCoord1 = (x: 0, y:0);
@@ -57,7 +55,7 @@ public class Day03 : ISolution
             }
         }
 
-        return $"Santa visits {houses1.Count} unique houses; Santa + Robo-Santa visit {houses2.Count} unique houses";
+        return (houses1.Count, houses2.Count);
     }
 
     private static (int x, int y) GetNewCoord((int x, int y) coord, char c)
@@ -74,6 +72,9 @@ public class Day03 : ISolution
 
     public string Answer()
     {
-        return GetDeliveredHouses();
+        // part 1, part 2
+        (int houses1, int houses2) = GetDeliveredHouses();
+        
+        return $"Santa visits {houses1} unique houses; Santa + Robo-Santa visit {houses2} unique houses";
     }
 }

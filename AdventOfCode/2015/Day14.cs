@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day14 : ISolution
@@ -168,7 +166,7 @@ public class Day14 : ISolution
         reindeer = Init();
         (string highestScoringReindeer, int highScore) = CalculateHighestScoringReindeer(reindeer, seconds);
 
-        return $"the fastest reindeer {fastestReindeer} traveled {bestDistance} km in {seconds} seconds and the highest scoring reindeer {highestScoringReindeer} got {highScore} points in {seconds} seconds";
+        return $"the fastest reindeer {fastestReindeer} traveled {bestDistance} km in {seconds} seconds; and the highest scoring reindeer {highestScoringReindeer} got {highScore} points in {seconds} seconds";
     }
 
 }

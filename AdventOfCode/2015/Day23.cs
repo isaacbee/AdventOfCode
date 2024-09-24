@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day23 : ISolution
@@ -72,10 +70,12 @@ public class Day23 : ISolution
 
     public string Answer()
     {
-        (int a1, int b1) = RunExampleProgram();
+        // part 1
+        (int a1, int b1) = RunExampleProgram(0, 0);
 
-        (int a2, int b2) = RunExampleProgram(1);
+        // part 2
+        (int a2, int b2) = RunExampleProgram(1, 0);
 
-        return $"the value of the register b after running the program: b = {b1}; the value of the register b after running the program when the register a = 1: b = {b2}";
+        return $"the value of the register b after running the program with inputs (a = 0, b = 0) = {b1}; and the value of the register b after running the program with inputs (a = 1, b = 0) = {b2}";
     }
 }

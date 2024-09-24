@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day13 : ISolution
@@ -141,7 +139,7 @@ public class Day13 : ISolution
         AddDinnerGuest(guests2, "me");
         (int happiness2, List<string> bestSeating2) = CalculateBestSeating(guests2);
 
-        return $"the best seating arrangement {string.Join(", ", bestSeating1)} = {happiness1} and changes to {string.Join(", ", bestSeating2)} = {happiness2} after including myself";
+        return $"the best seating arrangement {string.Join(", ", bestSeating1)} = {happiness1}; and changes to {string.Join(", ", bestSeating2)} = {happiness2} after including myself";
     }
 
 }

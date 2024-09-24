@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day16 : ISolution
@@ -99,7 +97,7 @@ public class Day16 : ISolution
         // part 2
         int index2 = FindSue(sues, MFCSAM, true);
 
-        return $"the matching Sue is Sue {index1} unless it has an outdated retroencabulator, in which case the matching Sue is Sue {index2}";
+        return $"the matching Sue is Sue {index1}; unless it has an outdated retroencabulator, in which case the matching Sue is Sue {index2}";
     }
 
 }

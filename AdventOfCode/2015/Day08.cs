@@ -1,5 +1,5 @@
-using System;
 using System.Text.RegularExpressions;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace AdventOfCode._2015;
 
@@ -8,7 +8,7 @@ public class Day08 : ISolution
     private static readonly string filePath = $"lib\\2015\\Day08-input.txt";
     private static readonly string inputText = File.ReadAllText(filePath);
 
-    private static string GetExtraCharCount()
+    private static (int diff1, int diff2) GetExtraCharCount()
     {
         int codeLength = 0;
         int charLength = 0;
@@ -30,15 +30,18 @@ public class Day08 : ISolution
             charLength += escapedLine.Length;
 
             // part 2
-            string encodedLine = Microsoft.CodeAnalysis.CSharp.SymbolDisplay.FormatLiteral(line, true);
+            string encodedLine = SymbolDisplay.FormatLiteral(line, true);
             encodedLength += encodedLine.Length;
         }
 
-        return $"{codeLength - charLength} length difference between the original strings and the decoded strings and {encodedLength - codeLength} length difference between the encoded strings and the original strings";
+        return (codeLength - charLength, encodedLength - codeLength);
     }
 
     public string Answer()
     {
-        return GetExtraCharCount();
+        // part 1, part 2
+        var (diff1, diff2) = GetExtraCharCount();
+        
+        return $"{diff1} length difference between the original strings and the decoded strings; and {diff2} length difference between the encoded strings and the original strings";
     }
 }

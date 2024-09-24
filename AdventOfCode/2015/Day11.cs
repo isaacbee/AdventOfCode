@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2015;
@@ -71,11 +70,13 @@ public partial class Day11 : ISolution
 
     public string Answer()
     {
-        string part1 = ChangePassword(inputText);
+        // part 1
+        string password1 = ChangePassword(inputText);
 
-        string part2 = ChangePassword(part1);
+        // part 2
+        string password2 = ChangePassword(password1);
 
-        return $"the next password that meets the 3 requirments = {part1} and the password after that = {part2}";
+        return $"the next password that meets the 3 requirments = {password1}; and the password after that = {password2}";
     }
 
     [GeneratedRegex("[ilo]")]

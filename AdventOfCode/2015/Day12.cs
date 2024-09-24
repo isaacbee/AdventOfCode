@@ -1,4 +1,3 @@
-using System;
 using System.Text.Json.Nodes;
 
 namespace AdventOfCode._2015;
@@ -51,11 +50,13 @@ public class Day12 : ISolution
     {
         JsonNode? root = Init();
 
-        int part1 = SumAllIntegers(root);
+        // part 1
+        int sum1 = SumAllIntegers(root);
 
-        int part2 = SumAllIntegers(root, true);
+        // part 2
+        int sum2 = SumAllIntegers(root, true);
 
-        return $"the sum of all numbers in the document = {part1} and the sum of all non-red numbers in the document = {part2}";
+        return $"the sum of all numbers in the document = {sum1}; and the sum of all non-red numbers in the document = {sum2}";
     }
 
 }

@@ -1,4 +1,4 @@
-using System;
+using System.Text;
 using CommunityToolkit.HighPerformance;
 
 namespace AdventOfCode._2016;
@@ -45,7 +45,7 @@ public class Day08 : ISolution
         return list;
     }
 
-    private static int LitPixelsCount(int rows, int columns)
+    private static (int count, string display) LitPixels(int rows, int columns)
     {
         int count = 0;
         Span2D<bool> lights = new(new bool[columns, rows]);
@@ -84,6 +84,8 @@ public class Day08 : ISolution
             }
         }
 
+        StringBuilder display = new();
+
         for (int i = 0; i < columns; i++)
         {
             for (int j = 0; j < rows; j++)
@@ -92,12 +94,12 @@ public class Day08 : ISolution
                 {
                     count++;
                 }
-                Console.Write(lights[i, j] ? '#' : ' ');
+                display.Append(lights[i, j] ? '#' : ' ');
             }
-            Console.WriteLine("");
+            display.Append(Environment.NewLine);
         }
 
-        return count;
+        return (count, display.ToString());
     }
 
     public string Answer()
@@ -105,8 +107,9 @@ public class Day08 : ISolution
         int rows = 50;
         int columns = 6;
 
-        int litPixelCount = LitPixelsCount(rows, columns);
+        // part 1, part 2
+        (int count, string display) = LitPixels(rows, columns);
 
-        return $"the number of pixels that should be lit = {litPixelCount}";
+        return $"the number of pixels that should be lit = {count}; and the display looks like this{Environment.NewLine}{display}";
     }
 }

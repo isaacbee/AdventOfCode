@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day07 : ISolution
@@ -46,7 +44,6 @@ public class Day07 : ISolution
 
     private static Dictionary<string, LogicGate> InitLogicGates()
     {
-        // init
         string[] lines = inputText.Split(Environment.NewLine);
         Dictionary<string, LogicGate> logicGates = [];
 
@@ -119,21 +116,15 @@ public class Day07 : ISolution
 
     public string Answer()
     {
-        string answer = string.Empty;
-
         // part 1
         Dictionary<string, LogicGate> logicGates1 = InitLogicGates();
-
-        ushort a = SolveForIdentifier(logicGates1, "a");
-
-        answer += $"{a} signal at wire 'a' and ";
+        var a1 = SolveForIdentifier(logicGates1, "a");
 
         // part 2
         Dictionary<string, LogicGate> logicGates2 = InitLogicGates();
-        logicGates2["b"] = new LogicGate("b", a);
+        logicGates2["b"] = new LogicGate("b", a1);
+        var a2 = SolveForIdentifier(logicGates2, "a");
 
-        answer += $"{SolveForIdentifier(logicGates2, "a")} signal at wire 'a' after rewiring into b";
-
-        return answer;
+        return $"{a1} signal at wire 'a'; and {a2} signal at wire 'a' after rewiring into b";
     }
 }

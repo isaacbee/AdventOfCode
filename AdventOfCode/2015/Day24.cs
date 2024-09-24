@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day24 : ISolution
@@ -115,10 +113,14 @@ public class Day24 : ISolution
 
     public string Answer()
     {
-        long qe1 = SolveBestSleighBalance(3);
+        // part 1
+        int groups1 = 3;
+        long qe1 = SolveBestSleighBalance(groups1);
 
-        long qe2 = SolveBestSleighBalance(4);
+        // part 2
+        int groups2 = 4;
+        long qe2 = SolveBestSleighBalance(groups2);
 
-        return $"the quantum entanglement of the smallest group of packages in 3 groups = {qe1}; and the quantum entanglement of the smallest group of packages in 4 groups = {qe2}";
+        return $"the quantum entanglement of the smallest group of packages in {groups1} groups = {qe1}; and the quantum entanglement of the smallest group of packages in {groups2} groups = {qe2}";
     }
 }

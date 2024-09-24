@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 
 namespace AdventOfCode._2015;
@@ -31,7 +30,7 @@ public class Day18 : ISolution
         return lights;
     }
 
-    private static (int onCount, bool[,] newLights) CalculateOnLights(bool[,] originalLights, int remSteps, bool isCornersFaulty = false)
+    private static (int count, bool[,] newLights) CalculateOnLights(bool[,] originalLights, int remSteps, bool isCornersFaulty = false)
     {
         (int x, int y)[] allAdjacent = [
             (-1, -1),
@@ -143,10 +142,13 @@ public class Day18 : ISolution
     {
         bool[,] lights = InitLights();
         int steps = 100;
-        (int onCount1, bool[,] lightsPart1) = CalculateOnLights(lights, steps);
 
-        (int onCount2, bool[,] lightsPart2) = CalculateOnLights(lights, steps, true);
+        // part 1
+        (int count1, bool[,] lights1) = CalculateOnLights(lights, steps);
 
-        return $"{onCount1} lights are on after {steps} steps and {onCount2} lights are on after {steps} steps when the corners are stuck on";
+        // part 2
+        (int count2, bool[,] lights2) = CalculateOnLights(lights, steps, true);
+
+        return $"{count1} lights are on after {steps} steps; and {count2} lights are on after {steps} steps when the corners are stuck on";
     }
 }

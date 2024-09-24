@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day21 : ISolution
@@ -169,6 +167,6 @@ public class Day21 : ISolution
         // part 2
         int gold2 = CalculateOptimalShopping(player, boss, false, false);
 
-        return $"the least of amount of gold you can spend and still win the fight = {gold1} and the most amount of gold you can spend and still lost the fight = {gold2}";
+        return $"the least of amount of gold you can spend and still win the fight = {gold1}; and the most amount of gold you can spend and still lost the fight = {gold2}";
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2016;
@@ -89,8 +88,10 @@ public partial class Day07 : ISolution
 
     public string Answer()
     {
+        // part 1
         int ipTLSCount = IPsSupportTLSCount();
 
+        // part 2
         int ipSLSCount = IPsSupportSLSCount();
 
         return $"IP addresses in the list that support TLS = {ipTLSCount}; IP addresses in the list that support SLS = {ipSLSCount}";

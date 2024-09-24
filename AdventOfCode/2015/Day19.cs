@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2015;
@@ -65,7 +64,14 @@ public partial class Day19 : ISolution
         return text;
     }
 
-    // Extends out a molecule chain by iteratively applying every possible replacement. Warning: Slow.
+    /// <summary>
+    /// Extends out a molecule chain by iteratively applying every possible replacement. Warning: Slow.
+    /// </summary>
+    /// <param name="startMolecule"></param>
+    /// <param name="endMolecule"></param>
+    /// <param name="isRunOnce"></param>
+    /// <param name="maxSteps"></param>
+    /// <returns></returns>
     private static (HashSet<string> uniqueMolecules, int steps) MoleculeBuild(string startMolecule, string endMolecule = "", bool isRunOnce = true, int maxSteps = 8)
     {
         HashSet<string> set = [];
@@ -106,7 +112,13 @@ public partial class Day19 : ISolution
         return (set, 1);
     }
 
-    // Shrinks a molecule chain by iteratively applying every possible replacement in reverse. Warning: Slow.
+    /// <summary>
+    /// Shrinks a molecule chain by iteratively applying every possible replacement in reverse. Warning: Slow.
+    /// </summary>
+    /// <param name="startMolecule"></param>
+    /// <param name="endMolecule"></param>
+    /// <param name="isRunOnce"></param>
+    /// <returns></returns>
     private static (HashSet<string> uniqueMolecules, int steps) MoleculeReduce(string startMolecule, string endMolecule, bool isRunOnce = true)
     {
         HashSet<string> set = [];
@@ -144,13 +156,18 @@ public partial class Day19 : ISolution
         return (set, 1);
     }
 
-    // Entry point of the exhaustive search for the medicine molecule given a starting molecule. The depth is equal to the number of total replacements. Also works as a general solution for any end string and set of replacements as long as it is formatted to contain only single character replacements. Heavily inspired by the python solution here: https://github.com/HeWeMel/adventofcode/blob/main/2015/19/day19_part_b_isolated.py
+    /// <summary>
+    /// Entry point of the exhaustive search for the medicine molecule given a starting molecule. The depth is equal to the number of total replacements. Also works as a general solution for any end string and set of replacements as long as it is formatted to contain only single character replacements. Heavily inspired by the python solution here: https://github.com/HeWeMel/adventofcode/blob/main/2015/19/day19_part_b_isolated.py
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="medicine"></param>
+    /// <returns></returns>
     private static int GenerateMedicineMolecule(string start, string medicine)
     {
         cache = [];
         for (int depth = 0; ; depth++)
         {
-            foreach (var prefix in GeneratePossibleMolecules(start, medicine, depth))
+            foreach (var prefix in GeneratePrefix(start, medicine, depth))
             {
                 if (prefix == medicine)
                 {
@@ -160,8 +177,14 @@ public partial class Day19 : ISolution
         }
     }
 
-    // Performs an exhaustive search for every possible replacement up until the given depth, which is also the number of replacements. Performs heavy caching of partial results. Heavily inspired by the python solution here: https://github.com/HeWeMel/adventofcode/blob/main/2015/19/day19_part_b_isolated.py
-    private static IEnumerable<string> GeneratePossibleMolecules(string start, string end, int depth) {
+    /// <summary>
+    /// Performs an exhaustive search for every possible replacement up until the given depth, which is also the number of replacements. Performs heavy caching of partial results. Heavily inspired by the python solution here: https://github.com/HeWeMel/adventofcode/blob/main/2015/19/day19_part_b_isolated.py
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <param name="depth"></param>
+    /// <returns></returns>
+    private static IEnumerable<string> GeneratePrefix(string start, string end, int depth) {
         // Check if result is cached
         if (cache!.TryGetValue((start, end, depth), out IEnumerable<string>? returnValue))
         {
@@ -187,7 +210,7 @@ public partial class Day19 : ISolution
             {
                 foreach (string to_c in replacementList)
                 {
-                    prefixes.UnionWith(GeneratePossibleMolecules(to_c, end, depth - 1));
+                    prefixes.UnionWith(GeneratePrefix(to_c, end, depth - 1));
                 }
             }
         }
@@ -202,10 +225,10 @@ public partial class Day19 : ISolution
                 int depth_right = depth - depth_left;
 
                 // Get possible prefixes for the left part
-                foreach (string prefix_left in GeneratePossibleMolecules(start_left_part, end, depth_left))
+                foreach (string prefix_left in GeneratePrefix(start_left_part, end, depth_left))
                 {
                     // Get possible prefixes for the right part
-                    foreach (string prefix_right in GeneratePossibleMolecules(start_right_part, end[prefix_left.Length..], depth_right))
+                    foreach (string prefix_right in GeneratePrefix(start_right_part, end[prefix_left.Length..], depth_right))
                     {
                         // Combine the left and right prefixes
                         prefixes.Add(prefix_left + prefix_right);
@@ -219,7 +242,12 @@ public partial class Day19 : ISolution
         return prefixes;
     }
 
-    // Entry point of the greedy-random ordered search for the medicine molecule given a starting molecule. First applies a greedy search for the solution given an optimal ordering of {input.replacementsOrdered}. Then shuffles {input.replacementsOrdered} and tries again. Assumes that the first found solution is also the best solution. The depth is equal to the number of total replacements. 
+    /// <summary>
+    /// Entry point of the greedy-random ordered search for the medicine molecule given a starting molecule. First applies a greedy search for the solution given an optimal ordering of input.replacementsOrdered. Then shuffles input.replacementsOrdered and tries again. Assumes that the first found solution is also the best solution. The depth is equal to the number of total replacements. 
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="medicine"></param>
+    /// <returns></returns>
     private static (int depth, int loop) CalculateMedicineMolecule(string start, string medicine)
     {
         cache = [];
@@ -235,7 +263,14 @@ public partial class Day19 : ISolution
         }
     }
 
-    // Shrinks a molecule chain by iteratively applying the next {branches} number of valid reductions in the ordered list of reductions until no reductions can be made
+    /// <summary>
+    /// Shrinks a molecule chain by iteratively applying the next {branches} number of valid reductions in the ordered list of reductions until no reductions can be made
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <param name="branches"></param>
+    /// <param name="depth"></param>
+    /// <returns></returns>
     private static (bool isFound, int depth, string smallestTerminal) GenerateReduction(string start, string end, int branches, int depth)
     {
         int maxDepth = depth;
@@ -291,22 +326,23 @@ public partial class Day19 : ISolution
         // part 1
         (HashSet<string> distinctList1, _) = MoleculeBuild(input.medicine);
 
-        // part 2 (my solution)
+        // part 2
         (int depth, int attempt) = CalculateMedicineMolecule("e", input.medicine);
+
         return $"{distinctList1.Count} molecules can be made after one replacement of the medicine and \"e\" was turned into the medicine after {depth} steps (and {attempt} reordering of rules)";
 
         // // part 2 (adapted solution)
-        // int steps = GenerateMedicineMolecule("e", input.medicine);
+        // int steps = GeneratePrefix("e", input.medicine);
         // return $"{distinctList1.Count} molecules can be made after one replacement of the medicine and \"e\" was turned into the medicine after {steps} steps ({cache!.Count} unique molecules generated in the process)";
 
-        // part 2 (cool math solution)
-        // https://www.reddit.com/r/adventofcode/comments/3xflz8/comment/cy4etju/
-        // Example:
-        // CRnCaCaCaSiRnBPTiMgArSiRnSiRnMgArSiRnCaFArTiTiBSiThFYCaFArCaCaSiThCaPBSiThSiThCaCaPTiRnPBSiThRnFArArCaCaSiThCaSiThSiRnMgArCaPTiBPRnFArSiThCaSiRnFArBCaSiRnCaPRnFArPMgYCaFArCaPTiTiTiBPBSiThCaPTiBPBSiRnFArBPBSiRnCaFArBPRnSiRnFArRnSiRnBFArCaFArCaCaCaSiThSiThCaCaPBPTiTiRnFArCaPTiBSiAlArPBCaCaCaCaCaSiRnMgArCaSiThFArThCaSiThCaSiRnCaFYCaSiRnFYFArFArCaSiRnFYFArCaSiRnBPMgArSiThPRnFArCaSiRnFArTiRnSiRnFYFArCaSiRnBFArCaSiRnTiMgArSiThCaSiThCaFArPRnFArSiRnFArTiTiTiTiBCaCaSiRnCaCaFYFArSiThCaPTiBPTiBCaSiThSiRnMgArCaF
-        // 295 elements in total
-        //  68 are Rn or Ar
-        //   7 are Y
-        // 295 - (34 + 34) - 2*7 - 1 = 212
+        /* part 2 (cool math solution)
+        https://www.reddit.com/r/adventofcode/comments/3xflz8/comment/cy4etju/
+        Example:
+        CRnCaCaCaSiRnBPTiMgArSiRnSiRnMgArSiRnCaFArTiTiBSiThFYCaFArCaCaSiThCaPBSiThSiThCaCaPTiRnPBSiThRnFArArCaCaSiThCaSiThSiRnMgArCaPTiBPRnFArSiThCaSiRnFArBCaSiRnCaPRnFArPMgYCaFArCaPTiTiTiBPBSiThCaPTiBPBSiRnFArBPBSiRnCaFArBPRnSiRnFArRnSiRnBFArCaFArCaCaCaSiThSiThCaCaPBPTiTiRnFArCaPTiBSiAlArPBCaCaCaCaCaSiRnMgArCaSiThFArThCaSiThCaSiRnCaFYCaSiRnFYFArFArCaSiRnFYFArCaSiRnBPMgArSiThPRnFArCaSiRnFArTiRnSiRnFYFArCaSiRnBFArCaSiRnTiMgArSiThCaSiThCaFArPRnFArSiRnFArTiTiTiTiBCaCaSiRnCaCaFYFArSiThCaPTiBPTiBCaSiThSiRnMgArCaF
+        295 elements in total
+         68 are Rn or Ar
+          7 are Y
+        295 - (34 + 34) - 2*7 - 1 = 212 */
     }
 
     [GeneratedRegex(@"[A-Z][a-z]")]

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2016;
 
 public class Day04 : ISolution
@@ -95,8 +93,10 @@ public class Day04 : ISolution
 
     public string Answer()
     {
+        // part 1
         int sum = RealRoomSum();
 
+        // part 2
         int room = RealRoomSum(true);
 
         return $"the sum of real room sector IDs = {sum}; and the sector ID of the room where North Pole objects are stored = {room}";

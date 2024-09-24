@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day20 : ISolution
@@ -49,6 +47,6 @@ public class Day20 : ISolution
         int limit = 50;
         int house2 = CalculateMinimumDeliveriesHouse(presents, 11, limit);
 
-        return $"the first house to recieve at least {presents} presents = {house1} and the first house to recieve at least {presents} presents with a delivery limit of {limit} houses = {house2}";
+        return $"the first house to recieve at least {presents} presents = {house1}; and the first house to recieve at least {presents} presents with a delivery limit of {limit} houses = {house2}";
     }
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2016;
 
 public class Day03 : ISolution
@@ -76,10 +74,12 @@ public class Day03 : ISolution
 
     public string Answer()
     {
+        // part 1
         int triangles1 = GetValidTriangleCount(triList1);
 
+        // part 2
         int triangles2 = GetValidTriangleCount(triList2);
 
-        return $"the number of triangles that are possible horizontally = {triangles1}; the number of triangles that are possible vertically = {triangles2}";
+        return $"the number of triangles that are possible horizontally = {triangles1}; and the number of triangles that are possible vertically = {triangles2}";
     }
 }

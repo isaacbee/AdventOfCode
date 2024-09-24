@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day22 : ISolution
@@ -343,6 +341,6 @@ public class Day22 : ISolution
         // part 2
         int mana2 = GenerateOptimalCombat(player, boss, true);
         
-        return $"the least of amount of man you can spend and still win the fight = {mana1}; the least of amount of man you can spend and still win the fight on \x1b[1mhard\x1b[0m = {mana2}";
+        return $"the least of amount of man you can spend and still win the fight = {mana1}; and the least of amount of man you can spend and still win the fight on \x1b[1mhard\x1b[0m = {mana2}";
     }
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2015;
 
 public class Day15 : ISolution
@@ -104,7 +102,7 @@ public class Day15 : ISolution
         // part 2
         (Dictionary<string, int> teaspoons2, int score2) = CalculateBestCookie(ingredients, true, 500);
 
-        return $"the best cookie made from {string.Join(", ", teaspoons1)} = {score1} and the best cookie with 500 calories is made from {string.Join(", ", teaspoons2)} = {score2}";
+        return $"the best cookie made from {string.Join(", ", teaspoons1)} = {score1}; and the best cookie with 500 calories is made from {string.Join(", ", teaspoons2)} = {score2}";
     }
 
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode._2016;
 
 public class Day02 : ISolution
@@ -59,6 +57,7 @@ public class Day02 : ISolution
 
     public string Answer()
     {
+        // part 1
         char[,] numPad1 = {
             {'1', '2', '3'},
             {'4', '5', '6'},
@@ -66,6 +65,7 @@ public class Day02 : ISolution
         };
         string code1 = GetBathroomCode(numPad1);
 
+        // part 2
         char[,] numPad2 = {
             {'\0', '\0', '1', '\0', '\0'},
             {'\0', '2' , '3', '4' , '\0'},
@@ -75,6 +75,6 @@ public class Day02 : ISolution
         };
         string code2 = GetBathroomCode(numPad2);
 
-        return $"the expected bathroom code = {code1}; the actual bathroom code = {code2}";
+        return $"the expected bathroom code = {code1}; and the actual bathroom code = {code2}";
     }
 }

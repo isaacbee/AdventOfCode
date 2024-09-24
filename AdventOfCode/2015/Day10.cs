@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 
 namespace AdventOfCode._2015;
@@ -44,10 +43,12 @@ public class Day10 : ISolution
 
     public string Answer()
     {
-        string part1 = LookAndSay(inputText, 40);
+        // part 1
+        string result1 = LookAndSay(inputText, 40);
 
-        string part2 = LookAndSay(inputText, 50);
+        // part 2
+        string result2 = LookAndSay(inputText, 50);
 
-        return $"a length of {part1.Length} after 40 iterations and a length of {part2.Length} after 50 iterations";
+        return $"a length of {result1.Length} after 40 iterations; and a length of {result2.Length} after 50 iterations";
     }
 }
