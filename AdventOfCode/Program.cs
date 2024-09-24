@@ -18,7 +18,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day07());
+        RunSolution(new _2016.Day08());
     }
 
     static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
@@ -91,7 +91,7 @@ public class Program
             new _2016.Day05(), 
             new _2016.Day06(), 
             new _2016.Day07(), 
-            // new _2016.Day08(), 
+            new _2016.Day08(), 
             // new _2016.Day09(), 
             // new _2016.Day10(), 
             // new _2016.Day11(), 
@@ -147,6 +147,21 @@ public static class Extensions
     public static int Mod(this int k, int n) 
     {  
         return ((k %= n) < 0) ? k + n : k;  
+    }
+
+    public static T[] RotateArrayRight<T>(this T[] array, int shift)
+    {
+        int n = array.Length;
+        T[] rotated = new T[n];
+        shift %= n;
+
+        for (int i = 0; i < n; i++)
+        {
+            int newIndex = (i + shift) % n;
+            rotated[newIndex] = array[i];
+        }
+
+        return rotated;
     }
 
 }
