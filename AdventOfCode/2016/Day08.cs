@@ -45,7 +45,7 @@ public class Day08 : ISolution
         return list;
     }
 
-    private static (int count, string display) LitPixels(int rows, int columns)
+    private static (int count, string display) LitPixels(int columns, int rows)
     {
         int count = 0;
         Span2D<bool> lights = new(new bool[columns, rows]);
@@ -54,9 +54,11 @@ public class Day08 : ISolution
         {
             if (op == Operation.rect)
             {
-                for (int i = 0; i < b; i++)
+                int width = a;
+                int height = b;
+                for (int i = 0; i < height; i++)
                 {
-                    for (int j = 0; j < a; j++)
+                    for (int j = 0; j < width; j++)
                     {
                         lights[i, j] = true;
                     }
@@ -64,22 +66,26 @@ public class Day08 : ISolution
             }
             else if (op == Operation.rotateRow)
             {
-                var row = lights.GetRow(a).ToArray();
-                var newRow = row.RotateArrayRight(b);
+                int rowNumber = a;
+                int n = b;
+                var row = lights.GetRow(rowNumber).ToArray();
+                var newRow = row.RotateArrayRight(n);
                 
                 for (int j = 0; j < row.Length; j++)
                 {
-                    lights[a, j] = newRow[j];
+                    lights[rowNumber, j] = newRow[j];
                 }
             }
             else if (op == Operation.rotateCol)
             {
-                var col = lights.GetColumn(a).ToArray();
-                var newCol = col.RotateArrayRight(b);
+                int colNumber = a;
+                int n = b;
+                var col = lights.GetColumn(colNumber).ToArray();
+                var newCol = col.RotateArrayRight(n);
                 
                 for (int i = 0; i < col.Length; i++)
                 {
-                    lights[i, a] = newCol[i];
+                    lights[i, colNumber] = newCol[i];
                 }
             }
         }
@@ -108,7 +114,7 @@ public class Day08 : ISolution
         int columns = 6;
 
         // part 1, part 2
-        (int count, string display) = LitPixels(rows, columns);
+        (int count, string display) = LitPixels(columns, rows);
 
         return $"the number of pixels that should be lit = {count}; and the display looks like this{Environment.NewLine}{display}";
     }
