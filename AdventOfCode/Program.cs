@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics;
-using CommunityToolkit.HighPerformance;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AdventOfCode;
 
@@ -19,7 +17,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day09());
+        RunSolution(new _2016.Day10(), false);
     }
 
     /// <summary>
@@ -29,28 +27,46 @@ public class Program
     /// <param name="showTime">If true, prefix the result with the current runtime</param>
     /// <param name="isPrintPaused">If true, pause the <see cref="Stopwatch"/> while printing the result</param>
     /// <param name="isStopwatchReset">If true, reset the <see cref="Stopwatch"/> before running the solution</param>
-    static void RunSolution(ISolution Solve, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
+    static void RunSolution(ISolution solve, bool catchExceptions = true, bool showTime = true, bool isPrintPaused = false, bool isStopwatchReset = false)
     {
-        if (isStopwatchReset is true) sw.Reset();
+        if (isStopwatchReset) sw.Reset();
         sw.Start();
 
-        string answer = Solve.Answer();
+        if (catchExceptions)
+        {
+            try
+            {
+                string answer = solve.Answer();
+                PrintTimer(showTime, isPrintPaused);
+                Console.WriteLine($"The solution to {solve}: {answer}");
+            }
+            catch (Exception e)
+            {
+                PrintTimer(showTime, isPrintPaused);
+                Console.WriteLine($"Error when running {solve}: {e}");
+            }
+        }
+        else
+        {
+            string answer = solve.Answer();
+            PrintTimer(showTime, isPrintPaused);
+            Console.WriteLine($"The solution to {solve}: {answer}");
+        }
 
+        sw.Stop();
+    }
+
+    /// <summary>
+    /// Print program elapsed time
+    /// </summary>
+    /// <param name="showTime">If true, print the current runtime</param>
+    /// <param name="isPrintPaused">If true, pause the <see cref="Stopwatch"/> while printing</param>
+    private static void PrintTimer(bool showTime = true, bool isPrintPaused = false)
+    {
         if (isPrintPaused) sw.Stop();
         TimeSpan ts = sw.Elapsed;
 
         if (showTime) Console.Write($"[{string.Format("{0:00}:{1:00}.{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds)}] ");
-
-        try
-        {
-            Console.WriteLine($"The solution to {Solve}: {answer}");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Error when running {Solve}: {e}");
-        }
-
-        sw.Stop();
     }
 
     /// <summary>
@@ -107,7 +123,7 @@ public class Program
             new _2016.Day07(), 
             new _2016.Day08(), 
             new _2016.Day09(), 
-            // new _2016.Day10(), 
+            new _2016.Day10(), 
             // new _2016.Day11(), 
             // new _2016.Day12(), 
             // new _2016.Day13(), 
