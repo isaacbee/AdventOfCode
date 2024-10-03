@@ -5,7 +5,7 @@ namespace AdventOfCode._2016;
 
 public partial class Day09 : ISolution
 {
-    private static readonly string filePath = $"lib\\2016\\Day09-input.txt";
+    private static readonly string filePath = Path.Join("lib", "2016", "Day09-input.txt");
     private static readonly string inputText = File.ReadAllText(filePath);
 
     /// <summary>

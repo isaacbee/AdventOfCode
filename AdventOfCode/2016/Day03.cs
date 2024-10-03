@@ -2,7 +2,7 @@ namespace AdventOfCode._2016;
 
 public class Day03 : ISolution
 {
-    private static readonly string filePath = $"lib\\2016\\Day03-input.txt";
+    private static readonly string filePath = Path.Join("lib", "2016", "Day03-input.txt");
     private static readonly string inputText = File.ReadAllText(filePath);
     private static readonly List<(int a, int b, int c)> triList1 = InitTriangles1();
     private static readonly List<(int a, int b, int c)> triList2 = InitTriangles2();

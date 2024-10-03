@@ -4,7 +4,7 @@ namespace AdventOfCode._2015;
 
 public partial class Day05 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day05-input.txt";
+    private static readonly string filePath = Path.Join("lib", "2015", "Day05-input.txt");
     private static readonly string inputText = File.ReadAllText(filePath);
 
     private static int GetNiceStringsCountV1()

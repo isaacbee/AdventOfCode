@@ -4,7 +4,7 @@ namespace AdventOfCode._2015;
 
 public partial class Day19 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day19-input.txt"; //$"lib\\2015\\Day19-input2.txt" is an alternate set of inputs with a less optimal solution
+    private static readonly string filePath = Path.Join("lib", "2015", "Day19-input.txt"); //$"lib\\2015\\Day19-input2.txt" is an alternate set of inputs with a less optimal solution
     private static readonly string inputText = File.ReadAllText(filePath);
     private static (Dictionary<string, List<string>> replacements, string medicine, List<(string key, string value)> replacementsOrdered) input = InitMedicine();
     private static Dictionary<(string, string, int), IEnumerable<string>>? cache;

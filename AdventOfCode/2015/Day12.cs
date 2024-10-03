@@ -4,7 +4,7 @@ namespace AdventOfCode._2015;
 
 public class Day12 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day12-input.json";
+    private static readonly string filePath = Path.Join("lib", "2015", "Day12-input.json");
     private static readonly string inputText = File.ReadAllText(filePath);
 
     private static JsonNode? Init()

@@ -104,7 +104,7 @@ public class Program
         
         foreach (var solution in _2015solutions)
         {
-            RunSolution(solution);
+            RunSolution(solution, false);
         }
     }
 

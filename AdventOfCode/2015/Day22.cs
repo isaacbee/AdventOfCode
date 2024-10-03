@@ -2,7 +2,7 @@ namespace AdventOfCode._2015;
 
 public class Day22 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day22-input.txt";
+    private static readonly string filePath = Path.Join("lib", "2015", "Day22-input.txt");
     private static readonly string inputText = File.ReadAllText(filePath);
     private static readonly List<Spell> spellList = InitSpells();
     private static Dictionary<(int playerHP, int mana, int spentMana, int bossHP, int pDuration, int sDuration, int rDuration, SpellType type, bool isHard), int>? cache;

@@ -2,7 +2,7 @@ namespace AdventOfCode._2015;
 
 public class Day21 : ISolution
 {
-    private static readonly string filePath = $"lib\\2015\\Day21-input.txt";
+    private static readonly string filePath = Path.Join("lib", "2015", "Day21-input.txt");
     private static readonly string inputText = File.ReadAllText(filePath);
     private static readonly HashSet<Item> shop = InitShop();
 

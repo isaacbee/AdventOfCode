@@ -5,7 +5,7 @@ namespace AdventOfCode._2016;
 
 public class Day05 : ISolution
 {
-    // private static readonly string filePath = $"lib\\2016\\Day05-input.txt";
+    // private static readonly string filePath = Path.Join("lib", "2016", "Day05-input.txt");
     private static readonly string inputText = "reyedfim";
 
     private static string GetPassword(int length, bool isPart2 = false)
