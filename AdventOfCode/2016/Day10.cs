@@ -1,6 +1,3 @@
-using System.Security.Cryptography;
-using Microsoft.CodeAnalysis;
-
 namespace AdventOfCode._2016;
 
 public class Day10 : ISolution
