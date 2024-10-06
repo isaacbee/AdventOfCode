@@ -17,7 +17,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day12(), false);
+        RunSolution(new _2016.Day13(), false);
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ public class Program
             new _2016.Day10(), 
             new _2016.Day11(), 
             new _2016.Day12(), 
-            // new _2016.Day13(), 
+            new _2016.Day13(), 
             // new _2016.Day14(), 
             // new _2016.Day15(), 
             // new _2016.Day16(), 
@@ -231,6 +231,11 @@ public static class Extensions
         }
 
         return rotated;
+    }
+
+    public static (int, int) Add(this (int, int) tuple1, (int, int) tuple2)
+    {
+        return (tuple1.Item1 + tuple2.Item1, tuple1.Item2 + tuple2.Item2);
     }
 
 }
