@@ -17,7 +17,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day13(), false);
+        RunSolution(new _2016.Day14(), false);
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public class Program
             new _2016.Day11(), 
             new _2016.Day12(), 
             new _2016.Day13(), 
-            // new _2016.Day14(), 
+            new _2016.Day14(), 
             // new _2016.Day15(), 
             // new _2016.Day16(), 
             // new _2016.Day17(), 

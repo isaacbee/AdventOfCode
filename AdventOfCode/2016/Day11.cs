@@ -2,9 +2,6 @@ namespace AdventOfCode._2016;
 
 public class Day11 : ISolution
 {
-    // private static readonly string filePath = Path.Join("lib", "2016", "Day11-input.txt");
-    // private static readonly string inputText = File.ReadAllText(filePath);
-
     /// <summary>
     /// Stores the state of the objects in the Facility. Also provides several helper methods to check the state and get the next state after each move.
     /// </summary>

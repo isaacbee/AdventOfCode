@@ -5,8 +5,6 @@ namespace AdventOfCode._2016;
 
 public class Day13 : ISolution
 {
-    // private static readonly string filePath = Path.Join("lib", "2016", "Day13-input.txt");
-    // private static readonly string inputText = File.ReadAllText(filePath);
     private static readonly int input = 1364;
 
     /// <summary>
