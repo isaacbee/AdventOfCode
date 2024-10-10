@@ -11,34 +11,35 @@ public class Day02 : ISolution
         int codeLength = instructions.Length;
         char[] code = new char[codeLength];
 
-        int x = 1;
-        int y = 1;
+        int v = 1;
+        int h = 1;
 
         for (int i = 0; i < codeLength; i++)
         {
             foreach (char c in instructions[i])
             {
-                (int dx, int dy) = DirectionToCoord(c);
+                (int dv, int dh) = DirectionToCoord(c);
 
-                int ix = x + dx;
-                int iy = y + dy;
+                int iv = v + dv;
+                int ih = h + dh;
 
-                if (ix >= 0 && ix < numPad.GetLength(0) && iy >= 0 && iy < numPad.GetLength(0) && numPad[ix, iy] != '\0')
+                if (iv >= 0 && iv < numPad.GetLength(0) && ih >= 0 && ih < numPad.GetLength(1) && numPad[iv, ih] != '\0')
                 {
-                    (x, y) = (ix, iy);
+                    (v, h) = (iv, ih);
                 }
 
             }
-            code[i] = numPad[x, y];
+            code[i] = numPad[v, h];
         }
 
         return string.Concat(code);
     }
 
-    private static (int x, int y) DirectionToCoord(char direction)
+    private static (int v, int h) DirectionToCoord(char direction)
     {
-        (int x, int y)[] moveToCoord =
+        (int v, int h)[] moveToCoord =
         [
+            // swap up and down to match the orientation of the keypad
             (0, 1),     // R
             (1, 0),     // D
             (0, -1),    // L
