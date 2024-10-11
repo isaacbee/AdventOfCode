@@ -56,7 +56,7 @@ public class Day17 : ISolution
 
     private static readonly char[] directions =
     [
-        // swap up and down to match the orientation of the keypad
+        // swap up and down to match the orientation of the rooms
         'U',    // U
         'D',    // D
         'L',    // L
@@ -67,7 +67,7 @@ public class Day17 : ISolution
     {
         (int v, int h)[] moveToCoord =
         [
-            // swap up and down to match the orientation of the keypad
+            // swap up and down to match the orientation of the rooms
             (-1, 0),    // U
             (1, 0),     // D
             (0, -1),    // L
