@@ -17,7 +17,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day18(), false);
+        RunSolution(new _2016.Day19(), false);
     }
 
     /// <summary>
@@ -132,7 +132,7 @@ public class Program
             new _2016.Day16(), 
             new _2016.Day17(), 
             new _2016.Day18(), 
-            // new _2016.Day19(), 
+            new _2016.Day19(), 
             // new _2016.Day20(), 
             // new _2016.Day21(), 
             // new _2016.Day22(), 
@@ -236,6 +236,14 @@ public static class Extensions
     public static (int, int) Add(this (int, int) tuple1, (int, int) tuple2)
     {
         return (tuple1.Item1 + tuple2.Item1, tuple1.Item2 + tuple2.Item2);
+    }
+
+    public static LinkedListNode<T>? GetCircularNext<T>(this LinkedList<T> list, LinkedListNode<T>? current)
+    {
+        var next = current!.Next;
+        next ??= list.First;
+
+        return next;
     }
 
 }
