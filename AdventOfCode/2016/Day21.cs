@@ -1,5 +1,3 @@
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
 namespace AdventOfCode._2016;
 
 public class Day21 : ISolution
