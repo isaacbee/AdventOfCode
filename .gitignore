@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # MacOS custom attributes
 .DS_Store
+
+# VS Code Counter files
+.VSCodeCounter/*
