@@ -78,7 +78,7 @@ public class Day18 : ISolution
         int rows1 = 40;
         int safeTiles1 = GetTotalSafeCount(rows1);
 
-        // part 1
+        // part 2
         int rows2 = 400000;
         int safeTiles2 = GetTotalSafeCount(rows2);
 

@@ -209,7 +209,7 @@ public class Day21 : ISolution
         string password1 = "abcdefgh";
         string scramble1 = ScramblePassword(password1);
 
-        // part 1
+        // part 2
         string scramble2 = "fbgdceah";
         string password2 = UnscramblePassword(scramble2);
 

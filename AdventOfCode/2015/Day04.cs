@@ -59,7 +59,6 @@ public class Day04 : ISolution
         int n2 = 6;
         var (hash2, index2) = GetLowestNZeroHashLong(n2);
 
-
         return $"the value {index1} produces {n1} leading zeroes in the hash {hash1[..16]}...; and the value {index2} produces {n2} leading zeroes in the hash {hash2[..16]}...";
     }
 

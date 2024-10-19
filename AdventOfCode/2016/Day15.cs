@@ -59,7 +59,7 @@ public class Day15 : ISolution
         // part 1
         int time1 = GetCapsule(discs);
 
-        // part 1
+        // part 2
         discs.Add(new Disc(11, 0));
         int time2 = GetCapsule(discs);
 

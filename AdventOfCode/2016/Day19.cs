@@ -80,7 +80,7 @@ public class Day19 : ISolution
         // part 1
         int elf1 = TakeNextPresents();
 
-        // part 1
+        // part 2
         int elf2 = TakeOppositePresents();
 
         return $"Elf # {elf1} gets all the presents when taking from the next Elf; Elf # {elf2} gets all the presents when taking from the opposite Elf";
