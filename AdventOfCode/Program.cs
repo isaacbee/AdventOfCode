@@ -17,7 +17,7 @@ public class Program
         // Run2016Solutions();
 
         // Run individual solutions
-        RunSolution(new _2016.Day23(), false);
+        RunSolution(new _2016.Day24(), false);
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ public class Program
             new _2016.Day21(), 
             new _2016.Day22(), 
             new _2016.Day23(), 
-            // new _2016.Day24(), 
+            new _2016.Day24(), 
             // new _2016.Day25()
         ];
         
@@ -233,6 +233,13 @@ public static class Extensions
         return rotated;
     }
 
+    /// <summary>
+    /// Adds the individual values from an (int, int) tuple to another.
+    /// </summary>
+    /// <remarks>
+    /// For example, <c>(1, 3).Add(7, 11)</c> returns <c>(8, 14)</c>
+    /// </remarks>
+    /// <returns>A new (int, int) tuple containing the sums from each respecive value.</returns>
     public static (int, int) Add(this (int, int) tuple1, (int, int) tuple2)
     {
         return (tuple1.Item1 + tuple2.Item1, tuple1.Item2 + tuple2.Item2);
