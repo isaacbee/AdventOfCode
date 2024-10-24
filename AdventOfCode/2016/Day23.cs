@@ -23,6 +23,12 @@ public class Day23 : ISolution
         return newProgram;
     }
 
+    /// <summary>
+    /// Same as <see cref="Day12"/>, except there is a new <c>tgl x</c> instruction that toggles the instruction <c>x</c> away.
+    /// </summary>
+    /// <remarks>one-argument instructions, <c>inc</c> becomes <c>dec</c>, and all other one-argument instructions become <c>inc</c>. For two-argument instructions, <c>jnz</c> becomes <c>cpy</c>, and all other two-instructions become <c>jnz</c>. The arguments of a toggled instruction are not affected. If an attempt is made to toggle an instruction outside the program, nothing happens. If toggling produces an invalid instruction (like <c>cpy 1 2</c>) and an attempt is later made to execute that instruction, skip it instead. If <c>tgl</c> toggles itself (for example, if <c>a</c> is 0, <c>tgl a</c> would target itself and become <c>inc a</c>), the resulting instruction is not executed until the next time it is reached.
+    /// </remarks>
+    /// <returns>The value of the registers (a, b, c, d) as a tuple.</returns>
     private static (int a, int b, int c, int d) RunKeypadCode(int a = 0, int b = 0, int c = 0, int d = 0, int start = 0)
     {
         List<(string instruction, string[] args)> modifiedProgram = [.. program];
@@ -120,8 +126,8 @@ public class Day23 : ISolution
         // Warning: Slow
         // (int a2, _, _, _) = RunKeypadCode(eggs2, 0, 0, 0);
         
-        // Sped up version. Can speed up by 1) b = a - 1; 2) a = a * b; 3) b--; 4) go back to (2) until b == 0; 5) tgl every even instruction when i > 16; 6) run the instuctions starting with i = 17 until the end with the new register values.
-        // a = 12!, b = 0, c = 0, d = 0
+        // Sped up version by skipping the slow repeated addition. This is done by following the following steps: 1) b = a - 1; 2) a = a * b; 3) b--; 4) go back to (2) until b == 0; 5) 'tgl' every even instruction after index 16; 6) run the instuctions starting with index 17 until the end with the new register values.
+        // a = 12! (yes, that is 12 factorial), b = 0, c = 0, d = 0
         for (int i = 18; i < program.Count; i+=2)
         {
             program[i] = ToggleInstuction(program[i]);

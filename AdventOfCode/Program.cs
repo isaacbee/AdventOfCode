@@ -13,11 +13,11 @@ public class Program
         // // Run all solutions
         // RunAllSolutions();
 
-        // // Run an event's solutions
-        // Run2016Solutions();
+        // Run an event's solutions
+        Run2016Solutions();
 
-        // Run individual solutions
-        RunSolution(new _2016.Day25(), false);
+        // // Run individual solutions
+        // RunSolution(new _2016.Day25(), false);
     }
 
     /// <summary>

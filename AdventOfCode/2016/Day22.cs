@@ -36,6 +36,10 @@ public class Day22 : ISolution
         return nodes;
     }
 
+    /// <summary>
+    /// Returns the number of viable pairs of nodes in the storage cluster.
+    /// </summary>
+    /// <remarks>A viable pair of nodes is any two nodes (A,B) such that 1) Node A is not empty; 2) Nodes A and B are not the same node; and 3) The data on node A would fit on node B.</remarks>
     private static int GetViablePairs()
     {
         int count = 0;
@@ -48,11 +52,11 @@ public class Day22 : ISolution
             {
                 StorageNode currentNode = usedNodes[i];
                 StorageNode checkNode = availNodes[j];
-                if (currentNode.Used > 0)
+                if (currentNode.Used > 0) // condition (1)
                 {
-                    if (currentNode != checkNode)
+                    if (currentNode != checkNode) // condition (2)
                     {
-                        if (currentNode.Used <= checkNode.Avail)
+                        if (currentNode.Used <= checkNode.Avail) // condition (3)
                         {
                             count++;
                         }
@@ -71,8 +75,30 @@ public class Day22 : ISolution
         return count;
     }
 
+    /// <summary>
+    /// Draw a representation of the layout of the nodes in the storage cluster.
+    /// </summary>
+    /// <remarks>The empty node = <c>_</c>; Nodes that are too full to fit in the empty node = <c>#</c>; Accessable node at (0,0) = <c>(.)</c>; Node with the goal data = <c>G</c>; All other nodes = <c>.</c></remarks>
     private static void DrawNodes()
     {
+        // First calculate the size of the empty node.
+        int emptyAvail = 0;
+        for (int i = 0; i < nodes.GetLength(0); i++)
+        {
+            for (int j = 0; j < nodes.GetLength(1); j++)
+            {
+                if (nodes[i,j].Used == 0)
+                {
+                    emptyAvail = nodes[i,j].Avail;
+                    break;
+                }
+            }
+            if (emptyAvail > 0)
+            {
+                break;
+            }
+        }
+
         for (int i = 0; i < nodes.GetLength(0); i++)
         {
             for (int j = 0; j < nodes.GetLength(1); j++)
@@ -81,15 +107,15 @@ public class Day22 : ISolution
                 {
                     Console.Write(" _ ");
                 }
-                else if (nodes[i,j].Used > 94)
+                else if (nodes[i,j].Used > emptyAvail)
                 {
                     Console.Write(" # ");
                 }
-                else if ((i, j) == (0,0))
+                else if ((j, i) == (0, 0))
                 {
                     Console.Write("(.)");
                 }
-                else if ((i, j) == (0,29))
+                else if ((j, i) == (nodes.GetLength(1) - 1, 0))
                 {
                     Console.Write(" G ");
                 }
@@ -109,6 +135,7 @@ public class Day22 : ISolution
         // This identifies a few properties of the data: 1) Data can only fit in the singular empty node (which gets drawn as '_'); 2) Of the 1050 nodes, there are 29 nodes that are too full to fit in the empty node (which get drawn as '#'). 3) All other 1020 nodes have data which fits in the empty node but not each other (these get drawn as '.')
 
         // part 2
+        // Note that this is much faster to manually solve the "maze" by hand or by calculating the total number of steps than to write a BFS solver. If you wanted to do a programming solve, you would set the start to be the initial initial blank node and end point to be the space immediately to the left of the node with the goal data. You would then run a BFS to get to that end, treating the edges and '#' nodes as walls. You would then do the swap between the new blank node position and the goal data node. Then repeatedly run the BFS to get the new start position of the blank node to the end space immediately left of the new goal data node; until the goal data is in the (0,0) node.
         DrawNodes();
         // S............................G
         // ..............................

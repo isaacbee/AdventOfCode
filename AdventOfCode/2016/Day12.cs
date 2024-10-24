@@ -22,6 +22,13 @@ public class Day12 : ISolution
         return newProgram;
     }
 
+    /// <summary>
+    /// Runs the assembunny code from the boot sequence for the monorail control systems.
+    /// </summary>
+    /// <remarks>
+    /// The boot sequence makes use of only a few instructions: 1) <c>cpy x y</c> copies <c>x</c> (either an integer or the value of a register) into register <c>y</c>. 2) <c>inc x</c> increases the value of register <c>x</c> by one. 3) <c>dec x</c> decreases the value of register <c>x</c> by one. 4) <c>jnz x y</c> jumps to an instruction <c>y</c> away (positive means forward; negative means backward), but only if <c>x</c> is not zero.
+    /// </remarks>
+    /// <returns>The value of the registers (a, b, c, d) as a tuple.</returns>
     private static (int a, int b, int c, int d) RunBootSequence(int a = 0, int b = 0, int c = 0, int d = 0)
     {
         Dictionary<string, int> regs = new()
