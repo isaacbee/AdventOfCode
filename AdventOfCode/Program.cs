@@ -14,10 +14,10 @@ public class Program
         // RunAllSolutions();
 
         // Run an event's solutions
-        Run2016Solutions();
+        Run2025Solutions();
 
         // // Run individual solutions
-        // RunSolution(new _2016.Day25(), false);
+        // RunSolution(new _2025.Day01(), false);
     }
 
     /// <summary>
@@ -142,6 +142,45 @@ public class Program
         ];
         
         foreach (var solution in _2016solutions)
+        {
+            RunSolution(solution);
+        }
+    }
+
+    /// <summary>
+    /// Runs the solution for every day of the 2016 Advent of Code event
+    /// </summary>
+    static void Run2025Solutions()
+    {
+        ISolution[] _2025solutions = [ 
+            new _2025.Day01(), 
+            // new _2025.Day02(), 
+            // new _2025.Day03(), 
+            // new _2025.Day04(), 
+            // new _2025.Day05(), 
+            // new _2025.Day06(), 
+            // new _2025.Day07(), 
+            // new _2025.Day08(), 
+            // new _2025.Day09(), 
+            // new _2025.Day10(), 
+            // new _2025.Day11(), 
+            // new _2025.Day12(), 
+            // new _2025.Day13(), 
+            // new _2025.Day14(), 
+            // new _2025.Day15(), 
+            // new _2025.Day16(), 
+            // new _2025.Day17(), 
+            // new _2025.Day18(), 
+            // new _2025.Day19(), 
+            // new _2025.Day20(), 
+            // new _2025.Day21(), 
+            // new _2025.Day22(), 
+            // new _2025.Day23(), 
+            // new _2025.Day24(), 
+            // new _2025.Day25()
+        ];
+        
+        foreach (var solution in _2025solutions)
         {
             RunSolution(solution);
         }
