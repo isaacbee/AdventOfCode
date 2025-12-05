@@ -154,7 +154,7 @@ public class Program
     {
         ISolution[] _2025solutions = [ 
             new _2025.Day01(), 
-            // new _2025.Day02(), 
+            new _2025.Day02(), 
             // new _2025.Day03(), 
             // new _2025.Day04(), 
             // new _2025.Day05(), 
