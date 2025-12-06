@@ -15,6 +15,9 @@ public class Day03 : ISolution
         return [.. banks];
     }
 
+    /// <summary>
+    /// Given a number of batteries to select from each battery bank, sum the maximum joltage of every battery bank.
+    /// </summary>
     private static long TotalJoltage(int batteries)
     {
         long sum = 0;
@@ -27,6 +30,9 @@ public class Day03 : ISolution
         return sum;
     }
 
+    /// <summary>
+    /// Given a number of batteries to select from each battery bank, calculate the maximum joltage of a given battery bank. The maximum joltage is the maximum value when reading digits equal to the number of batteries selected from left to right. (You can skip digits.)
+    /// </summary>
     private static long FindMaximumJoltage(string bank, int batteries)
     {
         long joltage = 0;
@@ -40,12 +46,13 @@ public class Day03 : ISolution
             lastBattery += pos;
         }
 
-        // (int maxFirst, int pos1) = FindLargestDigit(bank[..^(batteries - 1)]);
-        // (int maxSecond, _) = FindLargestDigit(bank[(pos1 + 1)..]);
-
         return joltage;
     }
 
+    /// <summary>
+    /// Find the largest digit in a string of digits.
+    /// </summary>
+    /// <returns><c>(int, int)</c> representing the largest digit and its index in the string.</returns>
     private static (int digit, int pos) FindLargestDigit(string input)
     {
         int maxDigit = -1;

@@ -156,7 +156,7 @@ public class Program
             new _2025.Day01(), 
             new _2025.Day02(), 
             new _2025.Day03(), 
-            // new _2025.Day04(), 
+            new _2025.Day04(), 
             // new _2025.Day05(), 
             // new _2025.Day06(), 
             // new _2025.Day07(), 

@@ -25,7 +25,7 @@ public partial class Day02 : ISolution
     /// <summary>
     /// Sums the IDs in the provided ranges that are invalid.
     /// </summary>
-    /// <param name="isOnlyTwice">True if the invalid IDs contain a sequence repeated exactly twice. False if the invalid IDs contain a sequence repeated at least twice.</param>
+    /// <param name="isOnlyTwice"><c>true</c> if the invalid IDs contain a sequence repeated exactly twice. <c>false</c> if the invalid IDs contain a sequence repeated at least twice.</param>
     private static long InvalidSum(bool isOnlyTwice = true)
     {
         long invalidSum = 0;
@@ -94,7 +94,7 @@ public partial class Day02 : ISolution
     }
 
     /// <summary>
-    /// Unused Regex solution to Part 1 (slower than manual substring check).
+    /// Unused Regex solution to Part 1. This solution is more concise, but is slower than manual substring check.
     /// </summary>
     private static bool IsRepeatedTwiceRegex(string input)
     {
@@ -102,7 +102,7 @@ public partial class Day02 : ISolution
     }
 
     /// <summary>
-    /// Unused Regex solution to Part 2 (slower than manual substring check).
+    /// Unused Regex solution to Part 2. This solution is more concise, but is slower than manual substring check.
     /// </summary>
     private static bool IsRepeatedMultipleRegex(string input)
     {
@@ -122,20 +122,20 @@ public partial class Day02 : ISolution
 
     /// <summary>
     /// Regex explanation:
-    ///    ^        → start of string
-    ///    (\d+)    → capture one or more digits
-    ///    \1       → match the same captured group again
-    ///    $        → end of string
+    ///    ^        -> start of string
+    ///    (\d+)    -> capture one or more digits
+    ///    \1       -> match the same captured group again
+    ///    $        -> end of string
     /// </summary>
     [GeneratedRegex(@"^(\d+)\1$")]
     private static partial Regex RepeatedTwice();
 
     /// <summary>
     /// Regex explanation:
-    ///    ^        → start of string
-    ///    (\d+)    → capture one or more digits
-    ///    (\1)+    → match the same captured group one or more times
-    ///    $        → end of string
+    ///    ^        -> start of string
+    ///    (\d+)    -> capture one or more digits
+    ///    (\1)+    -> match the same captured group one or more times
+    ///    $        -> end of string
     /// </summary>
     [GeneratedRegex(@"^(\d+)(\1)+$")]
     private static partial Regex RepeatedMultiple();
