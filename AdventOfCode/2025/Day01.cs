@@ -45,11 +45,10 @@ public class Day01 : ISolution
     {
         int countZero = 0;
         int currentPosition = startPosition;
-        int previousPosition = currentPosition;
 
         foreach ((bool isRight, int turn) in rotations)
         {
-            previousPosition = currentPosition;
+            int previousPosition = currentPosition;
             currentPosition += (isRight ? 1 : -1) * turn;
             
             countZero += Math.Abs(currentPosition) / 100;
@@ -73,6 +72,6 @@ public class Day01 : ISolution
         // part 1
         int password2 = CountZeroClicks();
 
-        return $"The password to open the door is {password1}; if the password method is 0x434C49434B, the password to open the door is {password2}";
+        return $"The password to open the door is {password1} ; if the password method is 0x434C49434B, the password to open the door is {password2}";
     }
 }
